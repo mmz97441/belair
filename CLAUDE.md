@@ -1,30 +1,58 @@
-# CLAUDE.md — Analyse Projet BEL AIR
+# CLAUDE.md — Projet BEL AIR
 
 ## Vue d'ensemble
 
-**BEL AIR** est un site vitrine premium pour un cabinet de conseil en investissement immobilier international. La societe est francaise, basee operationnellement a Dubai, avec une presence terrain au Maroc et en Thailande. Le fondateur est **Mathieu Maillot**. Cible : investisseurs francophones (France, Belgique, Suisse, Luxembourg, Canada, DOM-TOM). Ticket moyen accompagne : 300-400 k EUR.
+**BEL AIR** est un site vitrine premium pour un cabinet de conseil en investissement immobilier international. Societe francaise, basee a Dubai, avec presence terrain au Maroc et en Thailande. Fondateur : **Mathieu Maillot**. Cible : investisseurs francophones (France, Belgique, Suisse, Luxembourg, Canada, DOM-TOM). Ticket moyen : 300-400 k EUR.
 
 **Slogan** : "Investir a l'etranger avec methode. Pas avec espoir."
 
 ---
 
-## Architecture technique
+## Arborescence du projet
 
-### Stack
-- **HTML/CSS/JS pur** — Aucun framework, aucun bundler, aucun package manager
-- **Fichier unique** : `belair-premium (4).html` (~6 Mo, 2184 lignes)
-- **Images encodees en base64** directement dans le HTML (cause principale du poids du fichier)
-- **Pas de backend** — Les formulaires ne soumettent rien cote serveur
-- **Pas de build system** — Fichier statique a deployer tel quel
+```
+belair/
+├── index.html              # HTML principal (53 Ko, ~807 lignes)
+├── css/
+│   └── style.css           # Tous les styles (1532 lignes)
+├── js/
+│   └── main.js             # Toute la logique JS (242 lignes)
+├── assets/
+│   └── images/
+│       ├── img-01.jpg      # Logo navbar (28 Ko)
+│       ├── img-02.jpg      # Logo mobile menu (28 Ko)
+│       ├── img-03.jpg      # Hero slide Thailande (770 Ko)
+│       ├── img-04.jpg      # Photo section identification (189 Ko)
+│       ├── img-05.jpg      # Photo fondateur (36 Ko)
+│       ├── img-06.jpg      # Photo Dubai (73 Ko)
+│       ├── img-07.jpg      # Photo fullbleed terrain (284 Ko)
+│       ├── img-08.jpg      # Photo marche Maroc card (109 Ko)
+│       ├── img-09.jpg      # Photo marche Thailande card (703 Ko)
+│       ├── img-10.jpg      # Photo projection/benefices (85 Ko)
+│       ├── img-11.jpg      # Header page Thailande (770 Ko)
+│       ├── img-12.jpg      # Photo Thai interieur (617 Ko)
+│       └── img-13.jpg      # Photo Thai vue generale (703 Ko)
+└── CLAUDE.md               # Ce fichier
+```
 
-### Fonts (Google Fonts)
+---
+
+## Stack technique
+
+- **HTML/CSS/JS pur** — Aucun framework, aucun bundler
+- **Structure separee** : HTML, CSS et JS dans des fichiers distincts
+- **Images** : fichiers JPEG dans `assets/images/`
+- **Pas de backend** — Formulaires avec validation client-side, a connecter
+- **Pas de build system** — Fichiers statiques a deployer tels quels
+
+### Fonts (Google Fonts CDN)
 | Font | Usage |
 |------|-------|
 | **Playfair Display** | Titres h1-h4, chiffres, citations |
 | **Cormorant Garamond** | Sous-titres italiques, taglines |
 | **DM Sans** | Corps de texte, boutons, labels |
 
-### Design System — Variables CSS
+### Design System — Variables CSS (`css/style.css`)
 ```css
 --cream: #FAFAF8       /* Fond principal clair */
 --ink: #1A1A1A         /* Texte principal */
@@ -33,197 +61,141 @@
 --gold: #C19F51        /* Accents dores / CTA */
 --gold-light: #E0C880  /* Or clair */
 --linen: #F0EFEB       /* Fond alternatif clair */
---red-soft: #8B3A3A    /* Non utilise actuellement */
+--red-soft: #8B3A3A    /* Erreurs formulaire */
 ```
-
-### Esthetique
-- Luxe / premium avec tons sombres et accents dores
-- Alternance sections sombres (#0A0A0A) et claires (cream/linen)
-- Typographie serif pour les titres, sans-serif pour le corps
-- Overlay grain (canvas) pour texture filmique
-- Curseur personnalise (point dore + anneau)
 
 ---
 
-## Structure des pages (SPA)
+## Pages SPA (dans `index.html`)
 
-Le site fonctionne en **Single Page Application** avec navigation JavaScript (`showPage()`). Toutes les pages sont dans le meme fichier HTML, affichees/cachees via la classe `.active`.
-
-### 4 Pages
+Navigation via `showPage()` dans `js/main.js`. Pages affichees/cachees via `.active`.
 
 | ID | Nom | Description |
 |----|-----|-------------|
-| `page-home` | Accueil | Page principale avec toutes les sections marketing |
-| `page-maroc` | Maroc | Page dediee a l'investissement au Maroc |
-| `page-thai` | Thailande | Page dediee a l'investissement en Thailande |
-| `page-contact` | Contact | Formulaire de contact complet |
-
-### Navigation
-- **Navbar fixe** (#navbar) : logo + 4 liens (Accueil, Maroc, Thailande, Contact) + bouton CTA
-- **Menu mobile** (hamburger) : meme navigation en plein ecran
-- **Footer** : navigation + liens legaux
+| `page-home` | Accueil | Page marketing avec hero, trust bar, sections |
+| `page-maroc` | Maroc | Investissement au Maroc |
+| `page-thai` | Thailande | Investissement en Thailande |
+| `page-contact` | Contact | Formulaire de contact |
+| `page-mentions` | Mentions legales | Informations juridiques |
+| `page-confidentialite` | Confidentialite | Politique de confidentialite |
+| `page-rgpd` | RGPD | Droits des utilisateurs |
 
 ---
 
-## Sections de la page d'accueil (dans l'ordre)
+## Sections de la page d'accueil
 
-| # | ID/Classe | Contenu |
-|---|-----------|---------|
-| 1 | `.hero` | Slider hero avec 2+ slides (Maroc + Thailande), fleches, dots, touch |
-| 2 | Section grid | **"Votre situation"** — Identification du prospect (problemes, douleurs) |
-| 3 | `.sec.sec-center` | **"Notre approche"** — Positionnement BEL AIR |
-| 4 | Section grid | **Fondateur** — Mathieu Maillot, photo + bio |
-| 5 | Section grid linen | **"Notre exigence vient de Dubai"** — Methode en 5 etapes + stat 90% |
-| 6 | `.sec-fullbleed` | **"Presence terrain"** — Thailande + Maroc, equipes locales |
-| 7 | `.sec.sec-linen` | **"Deux marches"** — Cards Maroc + Thailande avec CTA |
-| 8 | `.sec.sec-center` | **"Clients accompagnes"** — Compteur anime (47 investisseurs) |
-| 9 | `.testi-editorial` | **Temoignages** — Carrousel editorial avec 3 temoignages |
-| 10 | Section grid | **"Ce que vous cherchez vraiment"** — Projection / benefices |
-| 11 | `.final-sec` | **CTA final** — "Planifier un echange strategique" |
+| # | Section | Contenu |
+|---|---------|---------|
+| 1 | Hero slider | 2 slides (Maroc + Thailande), autoplay 5s, dots, fleches, touch |
+| 2 | Trust bar | 5 indicateurs de confiance |
+| 3 | Identification | "Votre situation" — douleurs prospect |
+| 4 | Positionnement | "Notre approche" — proposition de valeur |
+| 5 | Fondateur | Mathieu Maillot, photo + bio |
+| 6 | Methode Dubai | Methode en 5 etapes + stat 90% |
+| 7 | Presence terrain | Thailande + Maroc, equipes locales |
+| 8 | Deux marches | Cards Maroc + Thailande |
+| 9 | Social proof | Compteur anime (47) + temoignages carrousel |
+| 10 | Projection | "Ce que vous cherchez vraiment" |
+| 11 | CTA final | "Planifier un echange strategique" |
 
 ---
 
-## Composants JavaScript
+## Composants JavaScript (`js/main.js`)
 
-| Fonctionnalite | Description |
-|----------------|-------------|
-| **Grain Canvas** | Bruit visuel anime sur canvas overlay (texture filmique) |
-| **Curseur custom** | Point dore (#cursor-dot) + anneau (#cursor-ring) suivant la souris |
-| **Hero Slider** | Slides auto avec dots, fleches, support touch/swipe |
-| **SPA Router** | `showPage(name)` — affiche/cache les pages, met a jour la nav |
-| **Menu mobile** | `openMobile()` / `closeMobile()` |
-| **Modal contact** | `openModal()` / `closeModal()` — formulaire dans une modale |
-| **Formulaires** | `submitModal()` / `submitContactPage()` — affichent un message de succes (pas d'envoi reel) |
-| **Scroll Reveal** | IntersectionObserver sur `.reveal` — fade-in au scroll |
-| **Compteur anime** | `animateCounter()` sur #counter-clients (cible: 47) |
-| **Temoignages** | `goTesti(n)` — carrousel editorial avec 3 temoignages |
-| **Video autoplay** | Detection IntersectionObserver pour lecture auto des videos |
-| **Navbar scroll** | Classe `.scrolled` ajoutee au scroll (fond opaque) |
+| Fonctionnalite | Fonctions |
+|----------------|-----------|
+| **Grain Canvas** | IIFE — bruit visuel sur canvas overlay |
+| **Curseur custom** | `animCursor()` — dot + ring suivant la souris |
+| **Hero Slider** | `goSlide()`, `nextSlide()`, `prevSlide()` + autoplay 5s |
+| **SPA Router** | `showPage(name)` — navigation entre pages |
+| **Menu mobile** | `openMobile()`, `closeMobile()` |
+| **Modal contact** | `openModal()`, `closeModal()` |
+| **Formulaires** | `validateForm()`, `submitModal()`, `submitContactPage()` |
+| **Validation** | `validateEmail()`, `validatePhone()`, `showFormError()` |
+| **Scroll Reveal** | IntersectionObserver sur `.reveal` |
+| **Compteur anime** | `animateCounter()` sur #counter-clients |
+| **Temoignages** | `goTesti(n)` — carrousel 3 temoignages |
+| **Video autoplay** | IntersectionObserver pour autoplay muted |
 
 ---
 
 ## Formulaires
 
-### Modal de contact (globale)
-Champs : Prenom, Nom, Email, Telephone, Pays de residence (select), Marche d'interet (radio: Maroc/Thailande/Les deux), Message (optionnel), Checkbox RGPD.
+### Champs communs (modal + page contact)
+Prenom, Nom, Email, Telephone, Pays de residence, Marche d'interet (Maroc/Thailande/Les deux), Message (optionnel), Checkbox RGPD.
 
-### Page contact
-Memes champs que la modale, dans une mise en page dediee avec infos de contact a droite.
+### Validation client-side
+- Prenom/Nom : min 2 caracteres
+- Email : regex validation
+- Telephone : regex validation
+- Pays : obligatoire
+- RGPD : checkbox obligatoire
+- Erreurs : message anime avec shake effect
 
-**IMPORTANT** : Aucun formulaire n'envoie de donnees. Les fonctions `submitModal()` et `submitContactPage()` ne font qu'afficher un message de succes cote client.
-
----
-
-## Contenu textuel cle
-
-### Proposition de valeur
-- "Nous ne vendons pas des biens. Nous structurons des investissements."
-- 90% des projets analyses sont ecartes
-- 47 investisseurs accompagnes
-- Presence terrain active au Maroc et en Thailande
-- Methode en 5 etapes : Analyse zones > Selection projets > Verification terrain > Alignement strategie > Accompagnement complet
-
-### Temoignages (3)
-1. Marc-Olivier T. — Saint-Denis, La Reunion
-2. Sandrine B. — Saint-Pierre, La Reunion
-3. Frederic A. — Le Tampon, La Reunion
-
-**Note** : Les temoignages mentionnent "Immorun" au lieu de "BEL AIR" (ancien nom probable, a corriger).
+### A connecter
+Les formulaires valident cote client mais n'envoient pas encore les donnees. Integrer : Formspree, Supabase, ou endpoint API.
 
 ---
 
-## Problemes identifies / Points d'amelioration
+## Elements de conversion (lead gen)
 
-### Bugs
-- [ ] **Images cassees** : Plusieurs balises `<img>` n'ont pas d'attribut `src=` (seulement `style=`), donc elles ne s'affichent pas
-- [ ] **Slides hero dupliques** : Deux slides identiques "Maroc" dans le hero (commentaire "Slide 2 - Maroc" x2)
-- [ ] **Incoherence de marque** : Les temoignages mentionnent "Immorun" au lieu de "BEL AIR"
-- [ ] **Pas d'autoplay slider** : Le hero slider ne change pas automatiquement (pas de `setInterval`)
-
-### Architecture
-- [ ] **Fichier monolithique** : Tout dans un seul fichier HTML de 6 Mo — difficile a maintenir
-- [ ] **Images base64** : Alourdissent enormement le fichier. Devraient etre des fichiers separes
-- [ ] **Pas de backend** : Les formulaires ne fonctionnent pas reellement
-- [ ] **Pas de meta SEO** : Pas de description, pas d'Open Graph, pas de schema.org
-- [ ] **Pas d'analytics** : Aucun tracking (Google Analytics, etc.)
-- [ ] **Pas de favicon**
-
-### Pages manquantes
-- [ ] **Mentions legales** — Lien present mais page inexistante
-- [ ] **Politique de confidentialite** — Lien present mais page inexistante
-- [ ] **RGPD** — Lien present mais page inexistante
-
-### UX/Performance
-- [ ] **Curseur custom** masque le curseur natif (`cursor: none !important`) — probleme d'accessibilite
-- [ ] **Responsive partiel** : Quelques media queries mais sections grid non adaptees au mobile
-- [ ] **Poids de page** : ~6 Mo pour une seule page (images base64)
-- [ ] **Pas de lazy loading** sur les images
+| Element | Emplacement |
+|---------|-------------|
+| **WhatsApp flottant** | Bas droite, permanent (numero a configurer) |
+| **Telephone flottant** | Au-dessus du WhatsApp (numero a configurer) |
+| **Trust bar** | Apres le hero, 5 indicateurs cles |
+| **Badge disponibilite** | Hero slide + modal (point vert anime) |
+| **Compteur clients** | Section social proof (47, anime) |
+| **CTA multiples** | Chaque section a un bouton vers la modale |
 
 ---
 
-## Arborescence du repo
+## SEO
 
-```
-belair/
-├── .git/
-├── belair-premium (4).html    # Fichier unique — tout le site
-└── CLAUDE.md                  # Ce fichier
-```
+Meta tags presents dans `index.html` :
+- `description`, `keywords`, `author`, `robots`
+- Open Graph : `og:title`, `og:description`, `og:type`, `og:locale`, `og:site_name`
+- Twitter Card : `twitter:card`, `twitter:title`, `twitter:description`
+- `canonical` URL (a mettre a jour avec le vrai domaine)
 
 ---
 
 ## Commandes utiles
 
 ```bash
-# Ouvrir le site localement
-open "belair-premium (4).html"
-# ou
-python3 -m http.server 8000   # puis http://localhost:8000
+# Lancer un serveur local
+python3 -m http.server 8000
+# puis ouvrir http://localhost:8000
 
-# Compter les lignes
-wc -l "belair-premium (4).html"   # 2184 lignes
+# Structure du projet
+find . -not -path './.git/*' -not -name '.git' | head -30
 
-# Chercher une section
-grep -n "SECTION_NAME" "belair-premium (4).html"
+# Taille des fichiers
+ls -lah index.html css/style.css js/main.js
+
+# Chercher du contenu
+grep -n "MOT" index.html css/style.css js/main.js
 ```
-
----
-
-## Plan de refactoring recommande
-
-### Phase 1 — Corrections immediates
-1. Corriger les balises `<img>` cassees (ajouter `src=`)
-2. Supprimer le slide hero duplique
-3. Remplacer "Immorun" par "BEL AIR" dans les temoignages
-4. Ajouter l'autoplay au slider hero
-
-### Phase 2 — Separation des assets
-1. Extraire les images base64 en fichiers separes (`/assets/images/`)
-2. Separer le CSS dans un fichier `style.css`
-3. Separer le JS dans un fichier `main.js`
-4. Renommer le fichier HTML en `index.html`
-
-### Phase 3 — Fonctionnalites manquantes
-1. Connecter les formulaires a un backend (Supabase, Formspree, etc.)
-2. Creer les pages legales (mentions, confidentialite, RGPD)
-3. Ajouter meta SEO + Open Graph
-4. Ajouter Google Analytics / tracking
-5. Ajouter un favicon
-
-### Phase 4 — Optimisation
-1. Optimiser les images (compression, formats modernes WebP/AVIF)
-2. Implementer le lazy loading
-3. Ameliorer le responsive design
-4. Tester l'accessibilite (WCAG)
-5. Ajouter un sitemap.xml et robots.txt
 
 ---
 
 ## Conventions de code
 
-- **CSS** : Commentaires avec `/* === NOM === */`, variables CSS, classes BEM-like
-- **HTML** : Commentaires avec `<!-- === NOM === -->`
-- **JS** : Fonctions globales, pas de modules, vanilla JS
-- **Langue** : Contenu en francais, code/commentaires mixte francais/anglais
-- **Nommage classes** : kebab-case (`sec-title`, `btn-primary`, `nav-cta-btn`)
-- **Nommage IDs** : kebab-case (`page-home`, `cursor-dot`, `modal-success`)
+- **CSS** : Commentaires `/* === NOM === */`, variables CSS, classes kebab-case
+- **HTML** : Commentaires `<!-- === NOM === -->`
+- **JS** : Fonctions globales, vanilla JS, pas de modules
+- **Nommage classes** : kebab-case (`sec-title`, `btn-primary`)
+- **Nommage IDs** : kebab-case (`page-home`, `cursor-dot`)
+
+---
+
+## TODO restant
+
+- [ ] Remplacer `971XXXXXXXXX` par le vrai numero WhatsApp/telephone
+- [ ] Connecter les formulaires a un backend
+- [ ] Ajouter Google Analytics (`gtag.js`)
+- [ ] Ajouter un favicon
+- [ ] Mettre a jour l'URL canonique avec le vrai domaine
+- [ ] Optimiser les images (compression WebP/AVIF)
+- [ ] Ajouter lazy loading sur les images
+- [ ] Ajouter sitemap.xml et robots.txt

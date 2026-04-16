@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0A0A0A">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="description" content="BEL AIR accompagne les investisseurs francophones dans leurs investissements immobiliers au Maroc et en Thaïlande. Cabinet basé à Dubaï. Sélection rigoureuse, présence terrain, accompagnement complet.">
+<meta name="keywords" content="investissement immobilier, Maroc, Thaïlande, investir à l'étranger, immobilier international, BEL AIR, Dubaï, patrimoine, rendement locatif, investissement premium">
+<meta name="author" content="BEL AIR">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="BEL AIR — Investissement immobilier international premium">
+<meta property="og:description" content="Investir à l'étranger avec méthode. Pas avec espoir. Cabinet basé à Dubaï, présence terrain au Maroc et en Thaïlande. 90% des projets analysés sont écartés.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="BEL AIR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BEL AIR — Investissement immobilier international">
+<meta name="twitter:description" content="Investir à l'étranger avec méthode. Pas avec espoir. 47 investisseurs accompagnés. Maroc & Thaïlande.">
+<link rel="canonical" href="https://www.belair-invest.com">
+<title>BEL AIR — Investir à l'étranger avec méthode. Pas avec espoir.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<canvas id="grain-canvas"></canvas>
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<!-- ===================== NAV ===================== -->
+<nav id="navbar">
+  <div class="nav-logo" onclick="showPage('home')">
+    <img src="assets/images/img-01.jpg" alt="BEL AIR" class="nav-logo-img" style="height:38px;width:auto;display:block;">
+  </div>
+  <ul class="nav-links">
+    <li><a href="#" id="nav-home" class="active" onclick="showPage('home'); return false;">Accueil</a></li>
+    <li><a href="#" id="nav-maroc" onclick="showPage('maroc'); return false;">Maroc</a></li>
+    <li><a href="#" id="nav-thai" onclick="showPage('thai'); return false;">Thaïlande</a></li>
+    <li><a href="#" id="nav-contact" onclick="showPage('contact'); return false;">Contact</a></li>
+    <li><button class="nav-cta-btn" onclick="openModal()">Planifier un échange</button></li>
+  </ul>
+  <button class="hamburger" onclick="openMobile()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <img src="assets/images/img-02.jpg" alt="BEL AIR" style="height:48px;width:auto;display:block;margin-bottom:24px;">
+  <button class="mobile-close" onclick="closeMobile()">×</button>
+  <a href="#" onclick="showPage('home'); closeMobile(); return false;">Accueil</a>
+  <a href="#" onclick="showPage('maroc'); closeMobile(); return false;">Maroc</a>
+  <a href="#" onclick="showPage('thai'); closeMobile(); return false;">Thaïlande</a>
+  <a href="#" onclick="showPage('contact'); closeMobile(); return false;">Contact</a>
+  <button class="btn btn-primary-lt" style="margin-top:12px;" onclick="openModal(); closeMobile();">Planifier un échange</button>
+</div>
+
+<!-- ===================== PAGE ACCUEIL ===================== -->
+<div class="page active" id="page-home">
+
+<!-- HERO -->
+  <div class="hero" id="hero">
+
+    <!-- Slide 1 - Maroc -->
+    <div class="slide slide-ma">
+      <div class="slide-geo">
+        <div class="geo-ring r1"></div>
+        <div class="geo-ring r2"></div>
+        <div class="geo-ring r3"></div>
+        <div class="geo-ring r4"></div>
+        <div class="geo-line-h gl1"></div>
+        <div class="geo-line-h gl2"></div>
+      </div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <div class="slide-country-label">Maroc</div>
+        <h1 class="slide-title">Structurer votre patrimoine<br>là où le potentiel est réel.</h1>
+        <div class="slide-bullets">
+          <div class="slide-bullet">Emplacements ciblés dans les zones les plus recherchées</div>
+          <div class="slide-bullet">Développeurs fiables avec historique de livraison vérifié</div>
+          <div class="slide-bullet">Marché dynamique porté par une demande internationale</div>
+        </div>
+        <button class="btn btn-primary" onclick="openModal()">Planifier un échange stratégique</button>
+        <div class="avail-badge"><span class="avail-dot"></span> Créneaux disponibles cette semaine</div>
+      </div>
+    </div>
+
+    <!-- Slide 1 - Thaïlande -->
+    <div class="slide active slide-th" style="background-image:url('assets/images/img-03.jpg'); background-size:cover; background-position:center;">
+      <div class="slide-geo">
+        <div class="geo-ring r1"></div>
+        <div class="geo-ring r2"></div>
+        <div class="geo-ring r3"></div>
+        <div class="geo-ring r4"></div>
+        <div class="geo-line-h gl1"></div>
+        <div class="geo-line-h gl2"></div>
+      </div>
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <div class="slide-country-label">Thaïlande</div>
+        <h1 class="slide-title">Un investissement qui vous plaît.<br>Un rendement qui a du sens.</h1>
+        <div class="slide-bullets" style="margin-top:36px;">
+          <div class="slide-bullet">Localisations stratégiques</div>
+          <div class="slide-bullet">Développeurs réputés</div>
+          <div class="slide-bullet">Forte demande locative</div>
+        </div>
+        <button class="btn btn-primary" onclick="openModal()">Planifier un échange stratégique</button>
+      </div>
+    </div>
+
+
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Découvrir</span>
+    </div>
+    <div class="hero-dots">
+      <button class="dot active" id="dot-0" onclick="goSlide(0)"></button>
+      <button class="dot" id="dot-1" onclick="goSlide(1)"></button>
+    </div>
+    <div class="hero-arrows">
+      <button class="arrow-btn" onclick="prevSlide()">&#8592;</button>
+      <button class="arrow-btn" onclick="nextSlide()">&#8594;</button>
+    </div>
+  </div>
+
+  
+
+<!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-item"><span class="trust-icon">◆</span> Société française</div>
+    <div class="trust-item"><span class="trust-icon">◆</span> Basé à Dubaï</div>
+    <div class="trust-item"><span class="trust-icon">◆</span> 47 investisseurs accompagnés</div>
+    <div class="trust-item"><span class="trust-icon">◆</span> Présence terrain Maroc & Thaïlande</div>
+    <div class="trust-item"><span class="trust-icon">◆</span> 90% des projets écartés</div>
+  </div>
+
+<!-- S2 — IDENTIFICATION -->
+  <section style="display:grid; grid-template-columns:1fr 1fr; min-height:680px; overflow:hidden;">
+
+    <!-- Colonne gauche : fond noir opaque, texte -->
+    <div style="
+      background: #0A0A0A;
+      padding: 88px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    ">
+      <!-- Séparateur vertical doré -->
+      <div style="position:absolute; right:0; top:60px; bottom:60px; width:1px; background:linear-gradient(to bottom, transparent, rgba(193,159,81,0.4), transparent);"></div>
+
+      <div class="sec-label reveal" style="color:var(--gold);">Votre situation</div>
+      <h2 class="sec-title reveal" style="color:white; font-size:clamp(26px,3vw,42px); margin-bottom:20px;">Vous cherchez à faire mieux que votre marché local.</h2>
+      <div class="gold-bar reveal reveal-delay-1"></div>
+
+      <ul class="check-list" style="margin:16px 0;">
+        <li style="border-color:rgba(255,255,255,0.08);"><span class="ci">→</span><span style="color:rgba(255,255,255,0.80);">Plus de rendement sur votre capital</span></li>
+        <li style="border-color:rgba(255,255,255,0.08);"><span class="ci">→</span><span style="color:rgba(255,255,255,0.80);">Plus de potentiel de valorisation</span></li>
+        <li style="border-color:rgba(255,255,255,0.08);"><span class="ci">→</span><span style="color:rgba(255,255,255,0.80);">Plus de flexibilité dans votre stratégie</span></li>
+      </ul>
+
+      <p style="margin-top:20px; font-size:15px; line-height:1.85; color:rgba(255,255,255,0.55);">Mais à chaque fois : trop d'informations contradictoires, des projets difficiles à comparer, des promesses rarement vérifiables.</p>
+
+      <p style="margin-top:16px; font-family:'Playfair Display',serif; font-style:italic; font-size:19px; color:var(--gold); line-height:1.4;">"Est-ce vraiment une bonne décision ?"</p>
+
+      <div class="btn-row" style="margin-top:32px;">
+        <button class="btn btn-primary" style="background:var(--gold);color:#0A0A0A;" onclick="openModal()">Discuter avec un expert</button>
+      </div>
+    </div>
+
+    <!-- Colonne droite : photo pure, zéro overlay -->
+    <div style="position:relative; overflow:hidden;">
+      <img 
+        src="assets/images/img-04.jpg" 
+        alt="Layan Verde — Phuket, Thaïlande"
+        style="
+          width:100%; 
+          height:100%; 
+          object-fit:cover; 
+          object-position:center center;
+          display:block;
+          transition: transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+        "
+        onmouseover="this.style.transform='scale(1.04)'"
+        onmouseout="this.style.transform='scale(1)'"
+      >
+    </div>
+
+  </section>
+
+  
+
+<!-- S4 — POSITIONNEMENT -->
+  <section class="sec sec-center" style="background:var(--cream);">
+    <div style="max-width:680px; margin:0 auto;">
+      <div class="sec-label center">Notre approche</div>
+      <h2 class="sec-title" style="color:var(--navy);">Ce n'est pas le marché qui fait la performance.<br>C'est la manière dont vous y investissez.</h2>
+      <div class="gold-bar center"></div>
+      <p style="font-family:'Cormorant Garamond',serif; font-size:22px; font-style:italic; color:rgba(28,53,87,0.65); margin-bottom:22px; line-height:1.6;">Nous ne vendons pas des biens.<br>Nous structurons des investissements.</p>
+      <p style="font-size:15px; color:rgba(26,26,26,0.68); max-width:500px; margin:0 auto 36px; line-height:1.85;">Basé à Dubaï, BEL AIR accompagne des investisseurs francophones dans la construction d'un portefeuille immobilier international cohérent — sélectionné avec rigueur, aligné sur votre stratégie.</p>
+      
+      <button class="btn btn-primary" onclick="openModal()">Planifier un échange stratégique</button>
+    </div>
+  </section>
+
+
+  <!-- S8 — FONDATEUR -->
+  <section style="display:grid; grid-template-columns:1fr 1fr; min-height:600px; overflow:hidden;">
+    <div style="position:relative; overflow:hidden;">
+      <img src="assets/images/img-05.jpg" alt="Mathieu Maillot — Fondateur BEL AIR"
+        style="width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);"
+        onmouseover="this.style.transform='scale(1.04)'"
+        onmouseout="this.style.transform='scale(1)'">
+    </div>
+
+    <div style="
+      background: #0A0A0A;
+      padding: 88px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    ">
+      <div style="position:absolute; left:0; top:60px; bottom:60px; width:1px; background:linear-gradient(to bottom, transparent, rgba(193,159,81,0.5), transparent);"></div>
+      
+      <div class="sec-label" style="color:var(--gold);">Le cabinet</div>
+      <div style="font-family:'Playfair Display',serif; font-size:32px; color:white; margin-bottom:6px; font-weight:500;">Mathieu Maillot</div>
+      <div style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:24px;">Fondateur — BEL AIR</div>
+      <div class="gold-bar"></div>
+      <p style="font-size:15px; line-height:1.9; color:rgba(255,255,255,0.68); margin-top:20px;">Basé à Dubaï, j'accompagne des investisseurs francophones dans leurs investissements immobiliers à l'international sur des marchés aussi dynamiques et recherchés que la Thaïlande, le Maroc et les Émirats Arabes Unis.</p>
+      <p style="font-size:15px; line-height:1.9; color:rgba(255,255,255,0.68); margin-top:16px;">Nous travaillons avec des équipes locales pour valider chaque projet sur le terrain et sécuriser les décisions. Mon approche est simple : sélectionner les bons actifs et investir avec clarté et méthode.</p>
+    </div>
+  </section>
+
+  
+
+<!-- S7 — DUBAÏ + MÉTHODE -->
+  <section style="display:grid; grid-template-columns:1fr 1fr; min-height:700px; overflow:hidden; background:var(--linen);">
+
+    <!-- Colonne gauche : texte sur fond lin -->
+    <div style="
+      background: var(--linen);
+      padding: 80px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    ">
+      <div style="position:absolute; right:0; top:60px; bottom:60px; width:1px; background:linear-gradient(to bottom, transparent, rgba(193,159,81,0.4), transparent);"></div>
+
+      <div class="sec-label" style="color:var(--gold);">Origine de la méthode</div>
+      <h2 style="font-family:'Playfair Display',serif; font-size:clamp(26px,3vw,42px); color:var(--navy); margin-bottom:20px; font-weight:500; line-height:1.2;">Notre exigence vient de Dubaï.</h2>
+      <div class="gold-bar"></div>
+
+      <p style="font-size:15px; line-height:1.85; color:rgba(26,26,26,0.72); margin-bottom:18px;">Un marché où chaque décision doit être justifiée. Un marché où les erreurs coûtent immédiatement.</p>
+      <p style="font-size:15px; line-height:1.85; color:rgba(26,26,26,0.72); margin-bottom:28px;">C'est dans cet environnement que nous avons construit notre méthode. Aujourd'hui, nous l'appliquons au Maroc et en Thaïlande.</p>
+
+      <div style="border-top:1px solid rgba(28,53,87,0.1); padding-top:28px; margin-top:8px;">
+        <h3 style="font-family:'Playfair Display',serif; font-size:22px; color:var(--navy); margin-bottom:20px;">Une approche structurée.</h3>
+
+        <div style="margin-bottom:12px;">
+          <div style="display:flex; gap:18px; padding:12px 0; border-bottom:1px solid rgba(28,53,87,0.07);">
+            <span style="font-family:'Playfair Display',serif; font-size:28px; color:var(--gold); opacity:0.5; width:40px; flex-shrink:0; line-height:1;">01</span>
+            <div><div style="font-size:14px; font-weight:500; color:var(--navy); margin-bottom:3px;">Analyse des zones à potentiel</div><div style="font-size:13px; color:rgba(26,26,26,0.55);">Identification des microzonages à forte demande réelle</div></div>
+          </div>
+          <div style="display:flex; gap:18px; padding:12px 0; border-bottom:1px solid rgba(28,53,87,0.07);">
+            <span style="font-family:'Playfair Display',serif; font-size:28px; color:var(--gold); opacity:0.5; width:40px; flex-shrink:0; line-height:1;">02</span>
+            <div><div style="font-size:14px; font-weight:500; color:var(--navy); margin-bottom:3px;">Sélection rigoureuse des projets</div><div style="font-size:13px; color:rgba(26,26,26,0.55);">Audit développeur, historique de livraison, structure juridique</div></div>
+          </div>
+          <div style="display:flex; gap:18px; padding:12px 0; border-bottom:1px solid rgba(28,53,87,0.07);">
+            <span style="font-family:'Playfair Display',serif; font-size:28px; color:var(--gold); opacity:0.5; width:40px; flex-shrink:0; line-height:1;">03</span>
+            <div><div style="font-size:14px; font-weight:500; color:var(--navy); margin-bottom:3px;">Vérification terrain</div><div style="font-size:13px; color:rgba(26,26,26,0.55);">Validation physique sur site avant toute recommandation</div></div>
+          </div>
+          <div style="display:flex; gap:18px; padding:12px 0; border-bottom:1px solid rgba(28,53,87,0.07);">
+            <span style="font-family:'Playfair Display',serif; font-size:28px; color:var(--gold); opacity:0.5; width:40px; flex-shrink:0; line-height:1;">04</span>
+            <div><div style="font-size:14px; font-weight:500; color:var(--navy); margin-bottom:3px;">Alignement avec votre stratégie</div><div style="font-size:13px; color:rgba(26,26,26,0.55);">Rendement, valorisation ou diversification</div></div>
+          </div>
+          <div style="display:flex; gap:18px; padding:12px 0;">
+            <span style="font-family:'Playfair Display',serif; font-size:28px; color:var(--gold); opacity:0.5; width:40px; flex-shrink:0; line-height:1;">05</span>
+            <div><div style="font-size:14px; font-weight:500; color:var(--navy); margin-bottom:3px;">Accompagnement complet</div><div style="font-size:13px; color:rgba(26,26,26,0.55);">De la première analyse jusqu'à la signature définitive</div></div>
+          </div>
+        </div>
+
+        <div style="border:1px solid rgba(193,159,81,0.35); padding:24px; text-align:center; margin:20px 0; background:white;">
+          <div style="font-family:'Playfair Display',serif; font-size:56px; color:var(--gold); line-height:1;">90%</div>
+          <div style="font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(26,26,26,0.55); margin-top:8px;">des projets analysés<br>sont écartés avant toute recommandation</div>
+        </div>
+
+        <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:16px; color:var(--navy); line-height:1.6; margin-bottom:16px;">Investir sans méthode, c'est parier.<br>Nous sélectionnons pour ne pas parier.</p>
+
+        <button class="btn-t" onclick="openModal()">Solliciter un entretien privé →</button>
+      </div>
+    </div>
+
+    <!-- Colonne droite : photo Dubaï -->
+    <div style="position:relative; overflow:hidden;">
+      <img src="assets/images/img-06.jpg" alt="Burj Al Arab — Dubaï"
+        style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 0.8s ease;"
+        onmouseover="this.style.transform='scale(1.04)'"
+        onmouseout="this.style.transform='scale(1)'">
+    </div>
+
+  </section>
+
+<!-- S6 — TERRAIN -->
+  <section class="sec-fullbleed fb-dark" style="min-height:620px;">
+    <div class="fb-bg" style="background-image:url('assets/images/img-07.jpg');"></div>
+    <div class="fb-overlay fb-overlay-left"></div>
+    <div class="fb-content">
+      <div class="sec-label">Présence terrain</div>
+      <h2 class="sec-title">Vous n'êtes jamais seul sur place.</h2>
+      <div class="gold-bar"></div>
+      <div class="terrain-card" style="border-left-color:var(--gold); padding-left:20px; margin-bottom:20px;">
+        <div class="terrain-sub" style="color:var(--gold);">🇹🇭 Thaïlande</div>
+        <div class="terrain-name">Présence terrain active</div>
+        <ul class="arrow-list" style="margin-top:10px;">
+          <li>Organisation de visites sur site</li>
+          <li>Validation des projets sur le terrain</li>
+          <li>Accompagnement jusqu'à la signature</li>
+        </ul>
+      </div>
+      <div class="terrain-card" style="border-left-color:var(--gold); padding-left:20px;">
+        <div class="terrain-sub" style="color:var(--gold);">🇲🇦 Maroc</div>
+        <div class="terrain-name">Présence terrain active</div>
+        <ul class="arrow-list" style="margin-top:10px;">
+          <li>Organisation de visites sur site</li>
+          <li>Validation des projets sur le terrain</li>
+          <li>Accompagnement jusqu'à la signature</li>
+        </ul>
+      </div>
+      <div class="btn-row" style="margin-top:28px;">
+        <button class="btn-t" onclick="openModal()" style="color:var(--gold);">Demander une présentation dédiée →</button>
+      </div>
+      <p style="font-family:'Playfair Display',serif; font-size:19px; font-style:italic; color:rgba(255,255,255,0.6); margin-top:24px;">Vous voyez. Vous comprenez. Vous décidez.</p>
+    </div>
+  </section>
+
+  
+
+<!-- S9 — DEUX MARCHÉS -->
+  <section class="sec sec-linen">
+    <div class="sec-label reveal">Nos marchés</div>
+    <h2 class="sec-title reveal">Deux marchés. Une seule exigence.</h2>
+    <div class="gold-bar reveal reveal-delay-1"></div>
+    <div class="mkt-grid">
+      <div class="mkt-card">
+        <div class="mkt-flag">🇲🇦</div>
+        <div class="mkt-name">Maroc</div>
+        <div class="mkt-sub">Opportunités ciblées</div>
+        <div class="mkt-bar"></div>
+        <div class="mkt-body">Un marché attractif mais exigeant. La qualité de l'emplacement et la solidité du développeur font toute la différence entre une bonne décision et une immobilisation de capital.</div>
+        <div class="img-zoom-wrap" style="border-radius:2px; overflow:hidden;"><img src="assets/images/img-08.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center;display:block;transition:transform 0.8s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+        <div class="btn-row"><button class="btn btn-outline" onclick="showPage('maroc')">Accéder à la sélection</button></div>
+      </div>
+      <div class="mkt-card">
+        <div class="mkt-flag">🇹🇭</div>
+        <div class="mkt-name">Thaïlande</div>
+        <div class="mkt-sub">Rendement maîtrisé</div>
+        <div class="mkt-bar"></div>
+        <div class="mkt-body">Une forte demande locative portée par le tourisme international. Des opportunités puissantes, si elles sont bien positionnées et sélectionnées avec rigueur.</div>
+        <div class="img-zoom-wrap"><img src="assets/images/img-09.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;margin-top:20px;" alt="Projet Thaïlande - Vue générale"></div>
+        <div class="btn-row"><button class="btn btn-outline" onclick="showPage('thai')">Accéder à la sélection</button></div>
+      </div>
+    </div>
+    <p style="font-family:'Playfair Display',serif; font-size:22px; font-style:italic; color:var(--navy); text-align:center; margin-top:48px;">Nous adaptons la stratégie au marché. Pas l'inverse.</p>
+  </section>
+
+  
+
+<!-- S5 — PREUVE SOCIALE ÉDITORIALE -->
+  <section class="sec sec-center">
+    <div class="sec-label center reveal">Clients accompagnés</div>
+    <h2 class="sec-title reveal reveal-delay-1">Des investisseurs déjà accompagnés.<br>Des décisions concrètes.</h2>
+    <div class="gold-bar center reveal reveal-delay-2"></div>
+    <div class="stat-row reveal reveal-delay-3">
+      <span class="stat-animated" data-target="47" id="counter-clients">0</span>
+      <div class="stat-l">investisseurs<br>accompagnés</div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS ÉDITORIAUX -->
+  <div class="testi-editorial">
+    <div class="testi-ed-wrap">
+      <div class="testi-ed-quote" id="testi-quote">
+        "J'avais peur de ne jamais voir la couleur de mon argent depuis La Réunion. Le suivi sur place et la transparence à chaque étape ont tout changé. Le rendement réel a dépassé ce qu'on m'avait annoncé."
+      </div>
+      <div class="testi-ed-author" id="testi-author">Marc-Olivier T. — Saint-Denis, La Réunion</div>
+      <div class="testi-ed-nav">
+        <button class="testi-ed-dot active" onclick="goTesti(0)"></button>
+        <button class="testi-ed-dot" onclick="goTesti(1)"></button>
+        <button class="testi-ed-dot" onclick="goTesti(2)"></button>
+      </div>
+    </div>
+  </div>
+
+  
+
+<!-- S10 — PROJECTION -->
+  <section style="display:grid; grid-template-columns:1fr 1fr; min-height:680px; overflow:hidden;">
+    <div style="
+      background: var(--cream);
+      padding: 88px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    ">
+      <div style="position:absolute; right:0; top:60px; bottom:60px; width:1px; background:linear-gradient(to bottom, transparent, rgba(193,159,81,0.4), transparent);"></div>
+      
+      <div class="sec-label reveal" style="color:var(--gold);">Ce que vous cherchez vraiment</div>
+      <h2 class="sec-title reveal" style="color:var(--navy); font-size:clamp(24px,2.8vw,40px); margin-bottom:20px;">Un investissement structuré.<br>Une tranquillité d'esprit réelle.</h2>
+      <div class="gold-bar reveal reveal-delay-1"></div>
+      <ul class="check-list" style="margin:16px 0;">
+        <li style="border-color:rgba(28,53,87,0.08);"><span class="ci">✓</span><span style="color:rgba(26,26,26,0.78);">Un investissement cohérent avec votre situation patrimoniale</span></li>
+        <li style="border-color:rgba(28,53,87,0.08);"><span class="ci">✓</span><span style="color:rgba(26,26,26,0.78);">Une stratégie claire et documentée dès le départ</span></li>
+        <li style="border-color:rgba(28,53,87,0.08);"><span class="ci">✓</span><span style="color:rgba(26,26,26,0.78);">Une sortie possible avec un marché secondaire réel</span></li>
+        <li style="border-color:rgba(28,53,87,0.08);"><span class="ci">✓</span><span style="color:rgba(26,26,26,0.78);">Une tranquillité d'esprit sur l'ensemble du processus</span></li>
+      </ul>
+      <p style="font-family:'Cormorant Garamond',serif; font-size:22px; font-style:italic; color:var(--gold); margin-top:24px; line-height:1.5;">Investir à l'étranger avec méthode.<br>Pas avec espoir.</p>
+      <div class="btn-row" style="margin-top:28px;">
+        <button class="btn btn-primary" onclick="openModal()">Planifier un échange stratégique</button>
+      </div>
+    </div>
+
+    <div style="position:relative; overflow:hidden;">
+      <img src="assets/images/img-10.jpg" alt="Tranquillité d'esprit"
+        style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);"
+        onmouseover="this.style.transform='scale(1.04)'"
+        onmouseout="this.style.transform='scale(1)'">
+    </div>
+  </section>
+
+  
+
+<!-- S11 — FINAL CTA -->
+  <div class="final-sec">
+    <div class="sec-label center">Passons à l'étape suivante</div>
+    <h2 class="sec-title" style="color:white; max-width:620px; margin:0 auto 18px;">Un investissement à l'étranger ne doit jamais être laissé au hasard.</h2>
+    <p style="font-family:'Cormorant Garamond',serif; font-size:22px; font-style:italic; color:rgba(255,255,255,0.52); margin-bottom:42px;">Prenons le temps de structurer votre projet.</p>
+    <button class="btn btn-primary-lt" onclick="openModal()">Planifier un échange stratégique</button>
+    <div class="reassurances">
+      <span class="reassurance">✔ Sans engagement</span>
+      <span class="reassurance">✔ Échange confidentiel</span>
+      <span class="reassurance">✔ Approche personnalisée</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PAGE MAROC ===================== -->
+
+</div>
+
+<div class="page" id="page-maroc">
+  <div class="page-header">
+    <div class="page-header-label">🇲🇦 Maroc</div>
+    <h1>Investir au Maroc avec méthode.</h1>
+    <p>Un marché attractif et exigeant. Nous sélectionnons uniquement les projets qui tiennent à la revente — pas seulement à la projection.</p>
+  </div>
+  <section class="sec">
+    <div class="sec-label reveal">Pourquoi le Maroc</div>
+    <h2 class="sec-title" style="max-width:560px; margin-bottom:20px;">Un marché dynamique. Une sélection indispensable.</h2>
+    <div class="gold-bar reveal reveal-delay-1"></div>
+    <div class="two-col" style="margin-top:44px;">
+      <div>
+        <p style="font-size:15px; line-height:1.85; opacity:0.75; margin-bottom:24px;">Le Maroc attire une demande internationale croissante, portée par sa proximité avec l'Europe, sa stabilité relative et le développement accéléré de ses infrastructures. Mais tous les projets ne se valent pas.</p>
+        <ul class="check-list">
+          <li><span class="ci">✓</span> Marrakech, Casablanca, Agadir — zones à potentiel identifiées sur le terrain</li>
+          <li><span class="ci">✓</span> Développeurs sélectionnés sur leur historique de livraison réel</li>
+          <li><span class="ci">✓</span> Vérification terrain systématique avant toute recommandation</li>
+          <li><span class="ci">✓</span> Accompagnement juridique local jusqu'à la signature</li>
+        </ul>
+        <div class="btn-row"><button class="btn btn-primary" onclick="openModal()">Accéder à la sélection confidentielle</button></div>
+      </div>
+      <div style="background:linear-gradient(145deg, #0F2238 0%, #1C3557 100%); aspect-ratio:4/3; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:40px; text-align:center;">
+        <div style="font-family:'Playfair Display',serif; font-size:48px; color:var(--gold); line-height:1; margin-bottom:12px;">300-400k€</div>
+        <div style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.5);">Ticket moyen accompagné</div>
+        <div style="width:40px; height:1px; background:var(--gold); margin:20px auto;"></div>
+        <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:17px; color:rgba(255,255,255,0.6);">Marrakech · Casablanca · Agadir</div>
+      </div>
+    </div>
+  </section>
+  <section class="sec sec-linen sec-center">
+    <div class="sec-label center">Notre sélection</div>
+    <h2 class="sec-title reveal">90% des projets analysés sont écartés.</h2>
+    <div class="gold-bar center"></div>
+    <p style="font-size:15px; opacity:0.7; max-width:520px; margin:0 auto 44px; line-height:1.85;">Nous visitons, analysons et validons chaque projet avant de le présenter. Ce que vous voyez est ce qui a passé notre filtre.</p>
+    <div class="three-col">
+      <div style="background:#0F2238; padding:36px 28px; text-align:center; border:1px solid rgba(193,159,81,0.15); transition:transform 0.4s, box-shadow 0.4s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 60px rgba(28,53,87,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="font-family:'Playfair Display',serif; font-size:44px; color:var(--gold); margin-bottom:8px;">01</div>
+        <div style="font-size:16px; color:white; font-weight:500; margin-bottom:8px;">Analyse du marché</div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.5); line-height:1.7;">Identification des zones à fort potentiel et microzonages en demande réelle</div>
+      </div>
+      <div style="background:#0F2238; padding:36px 28px; text-align:center; border:1px solid rgba(193,159,81,0.15); transition:transform 0.4s, box-shadow 0.4s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 60px rgba(28,53,87,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="font-family:'Playfair Display',serif; font-size:44px; color:var(--gold); margin-bottom:8px;">02</div>
+        <div style="font-size:16px; color:white; font-weight:500; margin-bottom:8px;">Validation terrain</div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.5); line-height:1.7;">Visite physique, audit du développeur et vérification de l'historique de livraison</div>
+      </div>
+      <div style="background:#0F2238; padding:36px 28px; text-align:center; border:1px solid rgba(193,159,81,0.15); transition:transform 0.4s, box-shadow 0.4s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 60px rgba(28,53,87,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="font-family:'Playfair Display',serif; font-size:44px; color:var(--gold); margin-bottom:8px;">03</div>
+        <div style="font-size:16px; color:white; font-weight:500; margin-bottom:8px;">Accompagnement</div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.5); line-height:1.7;">De la première analyse jusqu'à la signature définitive chez le notaire</div>
+      </div>
+    </div>
+    <div class="btn-row" style="justify-content:center; margin-top:40px;"><button class="btn btn-primary" onclick="openModal()">Planifier un échange Maroc</button></div>
+  </section>
+  <div class="final-sec">
+    <h2 class="sec-title" style="color:white; max-width:560px; margin:0 auto 20px;">Prêt à explorer les opportunités au Maroc ?</h2>
+    <p style="font-family:'Cormorant Garamond',serif; font-size:20px; font-style:italic; color:rgba(255,255,255,0.5); margin-bottom:36px;">Un échange de 30 minutes suffit à cadrer votre projet.</p>
+    <button class="btn btn-primary-lt" onclick="openModal()">Planifier un échange stratégique</button>
+    <div class="reassurances"><span class="reassurance">✔ Sans engagement</span><span class="reassurance">✔ Confidentiel</span><span class="reassurance">✔ Personnalisé</span></div>
+  </div>
+</div>
+
+<!-- ===================== PAGE THAÏLANDE ===================== -->
+<div class="page" id="page-thai">
+  <div class="page-header" style="background:#0A0A0A; position:relative; overflow:hidden;"><div style="position:absolute;inset:0;background-image:url('assets/images/img-11.jpg');background-size:cover;background-position:center;opacity:0.35;"></div><div style="position:relative;z-index:1;">
+    <div class="page-header-label">🇹🇭 Thaïlande</div>
+    <h1>Investir en Thaïlande avec méthode.</h1>
+    <p>Forte demande locative, tourisme international, expansion de la classe moyenne locale. Des opportunités puissantes, si elles sont bien positionnées.</p>
+  </div>
+  </div></div>
+  <section class="sec">
+    <div class="sec-label reveal">Pourquoi la Thaïlande</div>
+    <h2 class="sec-title" style="max-width:560px; margin-bottom:20px;">Un rendement locatif réel. Pas une promesse.</h2>
+    <div class="gold-bar reveal reveal-delay-1"></div>
+    <div class="two-col" style="margin-top:44px;">
+      <div>
+        <p style="font-size:15px; line-height:1.85; opacity:0.75; margin-bottom:24px;">Phuket, Chiang Mai, Bangkok — des marchés à forte demande locative portés par le tourisme mondial et une diaspora internationale croissante. La clé : la localisation et la qualité du promoteur.</p>
+        <ul class="check-list">
+          <li><span class="ci">✓</span> Zones ciblées sur critères de demande locative réelle</li>
+          <li><span class="ci">✓</span> Promoteurs premium avec track record documenté</li>
+          <li><span class="ci">✓</span> Cadre juridique spécifique aux étrangers maîtrisé</li>
+          <li><span class="ci">✓</span> Accompagnement de la visite à la signature</li>
+        </ul>
+        <div class="btn-row"><button class="btn btn-primary" onclick="openModal()">Accéder à la sélection confidentielle</button></div>
+      </div>
+      <div class="img-zoom-wrap"><img src="assets/images/img-12.jpg" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" alt="Projet Thaïlande - Vue intérieure"></div>
+    </div>
+  </section>
+  <section class="sec sec-linen sec-center">
+    <h2 class="sec-title reveal">Une présence terrain permanente.</h2>
+    <div class="gold-bar center"></div>
+    <p style="font-size:15px; opacity:0.7; max-width:500px; margin:0 auto 44px; line-height:1.85;">Nos équipes sont sur place. Chaque projet est visité, validé et audité avant d'être présenté à nos clients.</p>
+    <div class="img-zoom-wrap"><img src="assets/images/img-13.jpg" style="width:100%;max-width:820px;margin:0 auto;display:block;aspect-ratio:16/9;object-fit:cover;" alt="Vue du projet Thaïlande"></div>
+    <div class="btn-row" style="justify-content:center; margin-top:40px;"><button class="btn btn-primary" onclick="openModal()">Planifier un échange Thaïlande</button></div>
+  </section>
+  <div class="final-sec">
+    <h2 class="sec-title" style="color:white; max-width:560px; margin:0 auto 20px;">Prêt à explorer les opportunités en Thaïlande ?</h2>
+    <p style="font-family:'Cormorant Garamond',serif; font-size:20px; font-style:italic; color:rgba(255,255,255,0.5); margin-bottom:36px;">Un échange de 30 minutes suffit à cadrer votre projet.</p>
+    <button class="btn btn-primary-lt" onclick="openModal()">Planifier un échange stratégique</button>
+    <div class="reassurances"><span class="reassurance">✔ Sans engagement</span><span class="reassurance">✔ Confidentiel</span><span class="reassurance">✔ Personnalisé</span></div>
+  </div>
+</div>
+
+<!-- ===================== PAGE CONTACT ===================== -->
+<div class="page" id="page-contact">
+  <div class="page-header">
+    <div class="page-header-label">Contact</div>
+    <h1>Structurons votre projet ensemble.</h1>
+    <p>Sans engagement. Échange confidentiel. Approche personnalisée selon votre situation patrimoniale.</p>
+  </div>
+  <section class="sec">
+    <div class="contact-grid">
+      <div>
+        <div class="sec-label reveal">Formulaire de contact</div>
+        <h2 class="sec-title" style="font-size:28px; margin-bottom:16px;">Planifier un échange stratégique</h2>
+        <div class="gold-bar reveal reveal-delay-1"></div>
+        <p style="font-size:15px; opacity:0.7; line-height:1.8; margin-bottom:32px;">Remplissez ce formulaire et nous reviendrons vers vous dans les 48h pour organiser un premier échange adapté à votre projet.</p>
+        <div class="form-row-2">
+          <div class="form-group"><label>Prénom</label><input type="text" placeholder="Votre prénom"></div>
+          <div class="form-group"><label>Nom</label><input type="text" placeholder="Votre nom"></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="votre@email.com"></div>
+        <div class="form-group"><label>Téléphone</label><input type="tel" placeholder="+33 6 XX XX XX XX"></div>
+        <div class="form-group">
+          <label>Pays de résidence</label>
+          <select><option value="">Sélectionner</option><option>France</option><option>Belgique</option><option>Suisse</option><option>Luxembourg</option><option>Canada</option><option>Autre</option></select>
+        </div>
+        <div class="form-group">
+          <label>Marché d'intérêt</label>
+          <div class="radio-group">
+            <label class="radio-opt"><input type="radio" name="mkt-page" value="maroc"> Maroc</label>
+            <label class="radio-opt"><input type="radio" name="mkt-page" value="thai"> Thaïlande</label>
+            <label class="radio-opt"><input type="radio" name="mkt-page" value="both"> Les deux</label>
+          </div>
+        </div>
+        <div class="form-group"><label>Message (optionnel)</label><textarea placeholder="Précisez votre projet si vous le souhaitez..."></textarea></div>
+        <label class="rgpd-label"><input type="checkbox"> J'accepte que mes données soient utilisées pour traiter ma demande, conformément à la politique de confidentialité de BEL AIR.</label>
+        <button class="form-submit" onclick="submitContactPage()">Envoyer ma demande</button>
+        <div class="form-success" id="page-contact-success">
+          <h4>Message envoyé.</h4>
+          <p>Nous vous recontacterons dans les 48h pour organiser votre échange.</p>
+        </div>
+      </div>
+      <div>
+        <div class="contact-info-box">
+          <h3>BEL AIR</h3>
+          <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:17px; color:var(--navy); margin-bottom:20px; line-height:1.6;">"Investir à l'étranger avec méthode. Pas avec espoir."</p>
+          <ul class="check-list">
+            <li><span class="ci">✓</span> Société française</li>
+            <li><span class="ci">✓</span> Ancrage opérationnel à Dubaï</li>
+            <li><span class="ci">✓</span> Présence terrain Maroc &amp; Thaïlande</li>
+            <li><span class="ci">✓</span> Ticket moyen accompagné : 300–400 k€</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== PAGE MENTIONS LEGALES ===================== -->
+<div class="page" id="page-mentions">
+  <div class="page-header">
+    <div class="page-header-label">Juridique</div>
+    <h1>Mentions Légales</h1>
+  </div>
+  <section class="sec" style="max-width:800px; margin:0 auto;">
+    <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:var(--navy); margin-bottom:20px;">Éditeur du site</h2>
+    <p style="font-size:15px; line-height:1.85; opacity:0.75; margin-bottom:24px;">
+      <strong>BEL AIR</strong><br>
+      Société française de conseil en investissement immobilier international<br>
+      Siège opérationnel : Dubaï, Émirats Arabes Unis<br>
+      Email : contact@belair-invest.com
+    </p>
+    <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:var(--navy); margin-bottom:20px; margin-top:40px;">Hébergement</h2>
+    <p style="font-size:15px; line-height:1.85; opacity:0.75; margin-bottom:24px;">
+      Le site est hébergé par un prestataire professionnel garantissant la disponibilité et la sécurité des données.
+    </p>
+    <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:var(--navy); margin-bottom:20px; margin-top:40px;">Propriété intellectuelle</h2>
+    <p style="font-size:15px; line-height:1.85; opacity:0.75; margin-bottom:24px;">
+      L'ensemble du contenu de ce site (textes, images, vidéos, logos, mise en page) est protégé par le droit de la propriété intellectuelle. Toute reproduction, même partielle, est interdite sans autorisation écrite préalable de BEL AIR.
+    </p>
+    <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:var(--navy); margin-bottom:20px; margin-top:40px;">Responsabilité</h2>
+    <p style="font-size:15px; line-height:1.85; opacity:0.75; margin-bottom:24px;">
+      Les informations présentes sur ce site sont fournies à titre indicatif et ne constituent en aucun cas un conseil en investissement. BEL AIR ne saurait être tenu responsable des décisions prises sur la base de ces informations. Les performances passées ne préjugent pas des performances futures.
+    </p>
+  </section>
+</div>
+
+<!-- ===================== PAGE CONFIDENTIALITE ===================== -->
+<div class="page" id="page-confidentialite">
+  <div class="page-header">
+    <div class="page-header-label">Juridique</div>
+    <h1>Politique de Confidentialité</h1>
+  </div>
+  <section class="sec" style="max-width:800px; margin:0 auto;">
+    <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:var(--navy); margin-bottom:20px;">Collecte des données</h2>
+    <p style="font-size:15px; line-height:1.85; opacity:0.75; margin-bottom:24px;">
+      BEL AIR collecte les données personnelles que vous nous transmettez volontairement via les formulaires de contact présents sur ce site : prénom, nom, adresse email, numéro de téléphone, pays de résidence, marché d'intérêt et message éventuel.
+    </p>
+    <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:var(--navy); margin-bottom:20px; margin-top:40px;">Finalité du traitement</h2>
+    <p style="font-size:15px; line-height:1.85; opacity:0.75; margin-bottom:24px;">
+      Les données collectées sont utilisées exclusivement pour :<br>
+      — Répondre à vos demandes de renseignements<br>
+      — Organiser un échange stratégique personnalisé<br>
+      — Vous transmettre des informations sur nos opportunités d'investissement<br>
+    </p>
+    <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:var(--navy); margin-bottom:20px; margin-top:40px;">Conservation des données</h2>
+    <p style="font-size:15px; line-height:1.85; opacity:0.75; margin-bottom:24px;">
+      Vos données personnelles sont conservées pour une durée maximale de 3 ans à compter de votre dernier contact avec BEL AIR, sauf obligation légale de conservation plus longue.
+    </p>
+    <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:var(--navy); margin-bottom:20px; margin-top:40px;">Partage des données</h2>
+    <p style="font-size:15px; line-height:1.85; opacity:0.75; margin-bottom:24px;">
+      BEL AIR ne vend, ne loue et ne partage vos données personnelles avec aucun tiers à des fins commerciales. Vos données peuvent être partagées uniquement avec nos partenaires opérationnels dans le strict cadre du traitement de votre demande.
+    </p>
+    <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:var(--navy); margin-bottom:20px; margin-top:40px;">Contact</h2>
+    <p style="font-size:15px; line-height:1.85; opacity:0.75; margin-bottom:24px;">
+      Pour toute question relative à vos données personnelles, vous pouvez nous contacter à : contact@belair-invest.com
+    </p>
+  </section>
+</div>
+
+<!-- ===================== PAGE RGPD ===================== -->
+<div class="page" id="page-rgpd">
+  <div class="page-header">
+    <div class="page-header-label">Juridique</div>
+    <h1>RGPD — Vos Droits</h1>
+  </div>
+  <section class="sec" style="max-width:800px; margin:0 auto;">
+    <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:var(--navy); margin-bottom:20px;">Vos droits</h2>
+    <p style="font-size:15px; line-height:1.85; opacity:0.75; margin-bottom:24px;">
+      Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez des droits suivants concernant vos données personnelles :
+    </p>
+    <ul class="check-list" style="margin-bottom:32px;">
+      <li><span class="ci">✓</span> <strong>Droit d'accès</strong> — Obtenir la confirmation que vos données sont traitées et en obtenir une copie</li>
+      <li><span class="ci">✓</span> <strong>Droit de rectification</strong> — Demander la correction de données inexactes ou incomplètes</li>
+      <li><span class="ci">✓</span> <strong>Droit à l'effacement</strong> — Demander la suppression de vos données personnelles</li>
+      <li><span class="ci">✓</span> <strong>Droit à la limitation</strong> — Demander la limitation du traitement de vos données</li>
+      <li><span class="ci">✓</span> <strong>Droit à la portabilité</strong> — Recevoir vos données dans un format structuré et lisible</li>
+      <li><span class="ci">✓</span> <strong>Droit d'opposition</strong> — Vous opposer au traitement de vos données à tout moment</li>
+    </ul>
+    <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:var(--navy); margin-bottom:20px; margin-top:40px;">Exercer vos droits</h2>
+    <p style="font-size:15px; line-height:1.85; opacity:0.75; margin-bottom:24px;">
+      Pour exercer l'un de ces droits, envoyez votre demande accompagnée d'une copie de votre pièce d'identité à : <strong>contact@belair-invest.com</strong><br><br>
+      Nous nous engageons à répondre dans un délai maximum de 30 jours.
+    </p>
+    <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:var(--navy); margin-bottom:20px; margin-top:40px;">Réclamation</h2>
+    <p style="font-size:15px; line-height:1.85; opacity:0.75; margin-bottom:24px;">
+      Si vous estimez que le traitement de vos données ne respecte pas la réglementation en vigueur, vous pouvez introduire une réclamation auprès de la CNIL (Commission Nationale de l'Informatique et des Libertés).
+    </p>
+  </section>
+</div>
+
+<!-- ===================== FLOATING CTA BUTTONS ===================== -->
+<a href="https://wa.me/971XXXXXXXXX?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20opportunit%C3%A9s%20d%27investissement." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Nous contacter sur WhatsApp">
+  <span class="whatsapp-tooltip">Discuter sur WhatsApp</span>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<a href="tel:+971XXXXXXXXX" class="phone-float" aria-label="Nous appeler">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+</a>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">BEL ◆ AIR</div>
+      <p class="footer-tagline">Investir à l'étranger avec méthode.<br>Pas avec espoir.</p>
+      <p style="margin-top:22px; font-size:11px; opacity:0.22; letter-spacing:0.08em; text-transform:uppercase;">BEL AIR — Société française — Dubaï</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigation</div>
+      <ul class="footer-nav-list">
+        <li><a href="#" onclick="showPage('home'); return false;">Accueil</a></li>
+        <li><a href="#" onclick="showPage('maroc'); return false;">Maroc</a></li>
+        <li><a href="#" onclick="showPage('thai'); return false;">Thaïlande</a></li>
+        <li><a href="#" onclick="showPage('contact'); return false;">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Légal</div>
+      <ul class="footer-nav-list">
+        <li><a href="#" onclick="showPage('mentions'); return false;">Mentions légales</a></li>
+        <li><a href="#" onclick="showPage('confidentialite'); return false;">Politique de confidentialité</a></li>
+        <li><a href="#" onclick="showPage('rgpd'); return false;">RGPD</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 BEL AIR. Tous droits réservés.</span>
+    <span>Investissement immobilier international</span>
+  </div>
+</footer>
+
+
+
+
+<!-- ===================== MODAL ===================== -->
+<div class="modal-overlay" id="modal" onclick="handleModalClick(event)">
+  <div class="modal-box">
+
+    <!-- En-tête modal -->
+    <div class="modal-header">
+      <button class="modal-close-btn" onclick="closeModal()">×</button>
+      <div class="modal-lbl">Prise de contact</div>
+      <h3>Planifier un échange stratégique</h3>
+      <div class="avail-badge" style="justify-content:center; margin-top:8px;"><span class="avail-dot"></span> Réponse sous 48h garantie</div>
+    </div>
+
+    <!-- Corps modal -->
+    <div class="modal-body">
+      <div class="form-row-2">
+        <div class="fg"><label>Prénom</label><input type="text" placeholder="Votre prénom"></div>
+        <div class="fg"><label>Nom</label><input type="text" placeholder="Votre nom"></div>
+      </div>
+      <div class="fg"><label>Email</label><input type="email" placeholder="votre@email.com"></div>
+      <div class="fg"><label>Téléphone</label><input type="tel" placeholder="+33 6 XX XX XX XX"></div>
+      <div class="fg">
+        <label>Pays de résidence</label>
+        <select>
+          <option value="">Sélectionner</option>
+          <option>France</option>
+          <option>Belgique</option>
+          <option>Suisse</option>
+          <option>Luxembourg</option>
+          <option>Canada</option>
+          <option>Autre</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>Marché d'intérêt</label>
+        <div class="radio-grp">
+          <label class="radio-opt"><input type="radio" name="mkt-modal" value="maroc"> Maroc</label>
+          <label class="radio-opt"><input type="radio" name="mkt-modal" value="thai"> Thaïlande</label>
+          <label class="radio-opt"><input type="radio" name="mkt-modal" value="both"> Les deux</label>
+        </div>
+      </div>
+      <div class="fg"><label>Message <span style="opacity:0.4;">(optionnel)</span></label><textarea placeholder="Précisez votre projet si vous le souhaitez..."></textarea></div>
+      <label class="rgpd-label">
+        <input type="checkbox">
+        J'accepte que mes données soient utilisées pour traiter ma demande de contact, conformément à la politique de confidentialité de BEL AIR.
+      </label>
+      <button class="form-sub" onclick="submitModal()">Envoyer ma demande</button>
+      <div class="form-success" id="modal-success">
+        <h4>Message envoyé.</h4>
+        <p>Nous vous recontacterons dans les 48h pour organiser votre échange.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
