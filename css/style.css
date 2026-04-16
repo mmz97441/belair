@@ -708,6 +708,116 @@ img { max-width: 100%; display: block; }
   cursor: not-allowed;
 }
 
+/* ===================== PHONE PREFIX SELECTOR ===================== */
+.phone-input-wrap {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid rgba(28, 53, 87, 0.2);
+  transition: border-color 0.2s;
+}
+.phone-input-wrap:focus-within {
+  border-bottom-color: var(--navy);
+}
+.phone-prefix-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 11px 12px 11px 0;
+  background: none;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  color: var(--ink);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity 0.2s;
+}
+.phone-prefix-btn:hover { opacity: 0.7; }
+.phone-prefix-btn .flag { font-size: 18px; line-height: 1; }
+.phone-prefix-btn .code { font-size: 14px; color: var(--navy); font-weight: 500; }
+.phone-prefix-btn .chevron {
+  font-size: 10px;
+  color: rgba(28,53,87,0.4);
+  transition: transform 0.2s;
+}
+.phone-prefix-btn.open .chevron { transform: rotate(180deg); }
+.phone-input-wrap input[type="tel"] {
+  flex: 1;
+  padding: 11px 0;
+  font-size: 15px;
+  border: none !important;
+  background: transparent;
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+}
+.phone-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid rgba(28,53,87,0.12);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  z-index: 100;
+  max-height: 260px;
+  overflow: hidden;
+  flex-direction: column;
+}
+.phone-dropdown.open { display: flex; }
+.phone-dropdown-search {
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(28,53,87,0.08);
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
+}
+.phone-dropdown-search input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid rgba(28,53,87,0.15);
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+  color: var(--ink);
+  background: var(--cream);
+  transition: border-color 0.2s;
+}
+.phone-dropdown-search input:focus {
+  border-color: var(--gold);
+}
+.phone-dropdown-search input::placeholder {
+  color: rgba(28,53,87,0.35);
+}
+.phone-dropdown-list {
+  overflow-y: auto;
+  max-height: 200px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(28,53,87,0.15) transparent;
+}
+.phone-dropdown-list::-webkit-scrollbar { width: 4px; }
+.phone-dropdown-list::-webkit-scrollbar-thumb { background: rgba(28,53,87,0.15); border-radius: 2px; }
+.phone-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+  font-size: 14px;
+  color: var(--ink);
+}
+.phone-option:hover { background: var(--linen); }
+.phone-option.selected { background: rgba(193,159,81,0.08); }
+.phone-option .flag { font-size: 18px; flex-shrink: 0; }
+.phone-option .name { flex: 1; font-size: 13px; }
+.phone-option .dial { font-size: 13px; color: var(--navy); font-weight: 500; opacity: 0.7; }
+.phone-input-container { position: relative; }
+
 /* ===================== MODAL ===================== */
 .modal-overlay {
   display: none;

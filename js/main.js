@@ -280,6 +280,147 @@ document.querySelectorAll('video[autoplay]').forEach(function(video) {
   obs.observe(video);
 });
 
+/* === PHONE PREFIX SELECTOR === */
+(function() {
+  var countries = [
+    { name: 'La Réunion', dial: '+262', flag: '🇷🇪' },
+    { name: 'France', dial: '+33', flag: '🇫🇷' },
+    { name: 'Belgique', dial: '+32', flag: '🇧🇪' },
+    { name: 'Suisse', dial: '+41', flag: '🇨🇭' },
+    { name: 'Luxembourg', dial: '+352', flag: '🇱🇺' },
+    { name: 'Canada', dial: '+1', flag: '🇨🇦' },
+    { name: 'Maroc', dial: '+212', flag: '🇲🇦' },
+    { name: 'Thaïlande', dial: '+66', flag: '🇹🇭' },
+    { name: 'Émirats arabes unis', dial: '+971', flag: '🇦🇪' },
+    { name: 'Guadeloupe', dial: '+590', flag: '🇬🇵' },
+    { name: 'Martinique', dial: '+596', flag: '🇲🇶' },
+    { name: 'Guyane française', dial: '+594', flag: '🇬🇫' },
+    { name: 'Mayotte', dial: '+262', flag: '🇾🇹' },
+    { name: 'Nouvelle-Calédonie', dial: '+687', flag: '🇳🇨' },
+    { name: 'Polynésie française', dial: '+689', flag: '🇵🇫' },
+    { name: 'Allemagne', dial: '+49', flag: '🇩🇪' },
+    { name: 'Espagne', dial: '+34', flag: '🇪🇸' },
+    { name: 'Italie', dial: '+39', flag: '🇮🇹' },
+    { name: 'Portugal', dial: '+351', flag: '🇵🇹' },
+    { name: 'Royaume-Uni', dial: '+44', flag: '🇬🇧' },
+    { name: 'Pays-Bas', dial: '+31', flag: '🇳🇱' },
+    { name: 'États-Unis', dial: '+1', flag: '🇺🇸' },
+    { name: 'Monaco', dial: '+377', flag: '🇲🇨' },
+    { name: 'Tunisie', dial: '+216', flag: '🇹🇳' },
+    { name: 'Algérie', dial: '+213', flag: '🇩🇿' },
+    { name: 'Sénégal', dial: '+221', flag: '🇸🇳' },
+    { name: 'Côte d\'Ivoire', dial: '+225', flag: '🇨🇮' },
+    { name: 'Maurice', dial: '+230', flag: '🇲🇺' },
+    { name: 'Madagascar', dial: '+261', flag: '🇲🇬' },
+    { name: 'Cameroun', dial: '+237', flag: '🇨🇲' },
+    { name: 'Gabon', dial: '+241', flag: '🇬🇦' },
+    { name: 'Congo', dial: '+242', flag: '🇨🇬' },
+    { name: 'Liban', dial: '+961', flag: '🇱🇧' },
+    { name: 'Israël', dial: '+972', flag: '🇮🇱' },
+    { name: 'Australie', dial: '+61', flag: '🇦🇺' },
+    { name: 'Singapour', dial: '+65', flag: '🇸🇬' },
+    { name: 'Hong Kong', dial: '+852', flag: '🇭🇰' },
+    { name: 'Japon', dial: '+81', flag: '🇯🇵' },
+    { name: 'Chine', dial: '+86', flag: '🇨🇳' },
+    { name: 'Inde', dial: '+91', flag: '🇮🇳' },
+    { name: 'Brésil', dial: '+55', flag: '🇧🇷' },
+    { name: 'Mexique', dial: '+52', flag: '🇲🇽' },
+    { name: 'Russie', dial: '+7', flag: '🇷🇺' },
+    { name: 'Turquie', dial: '+90', flag: '🇹🇷' },
+    { name: 'Pologne', dial: '+48', flag: '🇵🇱' },
+    { name: 'Roumanie', dial: '+40', flag: '🇷🇴' },
+    { name: 'Suède', dial: '+46', flag: '🇸🇪' },
+    { name: 'Norvège', dial: '+47', flag: '🇳🇴' },
+    { name: 'Danemark', dial: '+45', flag: '🇩🇰' },
+    { name: 'Finlande', dial: '+358', flag: '🇫🇮' },
+    { name: 'Irlande', dial: '+353', flag: '🇮🇪' },
+    { name: 'Autriche', dial: '+43', flag: '🇦🇹' },
+    { name: 'Grèce', dial: '+30', flag: '🇬🇷' },
+    { name: 'Croatie', dial: '+385', flag: '🇭🇷' },
+    { name: 'République tchèque', dial: '+420', flag: '🇨🇿' }
+  ];
+
+  function initPhoneSelectors() {
+    var containers = document.querySelectorAll('.phone-input-container');
+    containers.forEach(function(container) {
+      var btn = container.querySelector('[data-phone-prefix]');
+      var dropdown = container.querySelector('[data-phone-dropdown]');
+      var searchInput = container.querySelector('[data-phone-search]');
+      var listEl = container.querySelector('[data-phone-list]');
+      var hiddenInput = container.querySelector('input[name="indicatif"]');
+      var telInput = container.querySelector('input[type="tel"]');
+      if (!btn || !dropdown || !listEl) return;
+
+      function renderList(filter) {
+        var html = '';
+        var q = (filter || '').toLowerCase();
+        countries.forEach(function(c, i) {
+          if (q && c.name.toLowerCase().indexOf(q) === -1 && c.dial.indexOf(q) === -1) return;
+          var sel = c.dial === hiddenInput.value && c.flag === btn.querySelector('.flag').textContent ? ' selected' : '';
+          html += '<div class="phone-option' + sel + '" data-index="' + i + '">'
+            + '<span class="flag">' + c.flag + '</span>'
+            + '<span class="name">' + c.name + '</span>'
+            + '<span class="dial">' + c.dial + '</span>'
+            + '</div>';
+        });
+        listEl.innerHTML = html;
+      }
+
+      function openDropdown() {
+        renderList('');
+        dropdown.classList.add('open');
+        btn.classList.add('open');
+        if (searchInput) { searchInput.value = ''; searchInput.focus(); }
+      }
+
+      function closeDropdown() {
+        dropdown.classList.remove('open');
+        btn.classList.remove('open');
+      }
+
+      function selectCountry(idx) {
+        var c = countries[idx];
+        btn.querySelector('.flag').textContent = c.flag;
+        btn.querySelector('.code').textContent = c.dial;
+        hiddenInput.value = c.dial;
+        closeDropdown();
+        if (telInput) telInput.focus();
+      }
+
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (dropdown.classList.contains('open')) closeDropdown();
+        else openDropdown();
+      });
+
+      listEl.addEventListener('click', function(e) {
+        var opt = e.target.closest('.phone-option');
+        if (opt) selectCountry(parseInt(opt.dataset.index));
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', function() {
+          renderList(this.value);
+        });
+        searchInput.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') closeDropdown();
+        });
+      }
+
+      document.addEventListener('click', function(e) {
+        if (!container.contains(e.target)) closeDropdown();
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPhoneSelectors);
+  } else {
+    initPhoneSelectors();
+  }
+})();
+
 /* === NAVBAR SCROLL === */
 (function() {
   var nav = document.getElementById('navbar');

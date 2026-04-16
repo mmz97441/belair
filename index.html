@@ -576,7 +576,26 @@
             <div class="form-group"><label>Nom</label><input type="text" name="nom" placeholder="Votre nom" required></div>
           </div>
           <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="votre@email.com" required></div>
-          <div class="form-group"><label>Téléphone</label><input type="tel" name="telephone" placeholder="+33 6 XX XX XX XX" required></div>
+          <div class="form-group">
+            <label>Téléphone</label>
+            <div class="phone-input-container">
+              <div class="phone-input-wrap">
+                <button type="button" class="phone-prefix-btn" data-phone-prefix>
+                  <span class="flag">🇷🇪</span>
+                  <span class="code">+262</span>
+                  <span class="chevron">▼</span>
+                </button>
+                <input type="tel" name="telephone" placeholder="692 XX XX XX" required>
+              </div>
+              <input type="hidden" name="indicatif" value="+262">
+              <div class="phone-dropdown" data-phone-dropdown>
+                <div class="phone-dropdown-search">
+                  <input type="text" placeholder="Rechercher un pays ou indicatif..." data-phone-search>
+                </div>
+                <div class="phone-dropdown-list" data-phone-list></div>
+              </div>
+            </div>
+          </div>
           <div class="form-group">
             <label>Pays de résidence</label>
             <select name="pays" required>
@@ -813,7 +832,26 @@
           <div class="fg"><label>Nom</label><input type="text" name="nom" placeholder="Votre nom" required></div>
         </div>
         <div class="fg"><label>Email</label><input type="email" name="email" placeholder="votre@email.com" required></div>
-        <div class="fg"><label>Téléphone</label><input type="tel" name="telephone" placeholder="+33 6 XX XX XX XX" required></div>
+        <div class="fg">
+          <label>Téléphone</label>
+          <div class="phone-input-container">
+            <div class="phone-input-wrap">
+              <button type="button" class="phone-prefix-btn" data-phone-prefix>
+                <span class="flag">🇷🇪</span>
+                <span class="code">+262</span>
+                <span class="chevron">▼</span>
+              </button>
+              <input type="tel" name="telephone" placeholder="692 XX XX XX" required>
+            </div>
+            <input type="hidden" name="indicatif" value="+262">
+            <div class="phone-dropdown" data-phone-dropdown>
+              <div class="phone-dropdown-search">
+                <input type="text" placeholder="Rechercher un pays ou indicatif..." data-phone-search>
+              </div>
+              <div class="phone-dropdown-list" data-phone-list></div>
+            </div>
+          </div>
+        </div>
         <div class="fg">
           <label>Pays de résidence</label>
           <select name="pays" required>
