@@ -1676,15 +1676,6 @@ body:has(a:hover) #cursor-ring {
 .grid-2col--xl { min-height: 700px; }
 .grid-2col--linen { background: var(--linen); }
 
-/* --- Large screen constraint --- */
-@media (min-width: 1600px) {
-  section[style*="grid-template-columns"] {
-    max-width: 1600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
 /* --- Layout: Column Panels --- */
 .col-dark {
   background: #0A0A0A;
