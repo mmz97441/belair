@@ -621,11 +621,14 @@ img { max-width: 100%; display: block; }
 .contact-info-box h3 { font-size: 20px; margin-bottom: 16px; color: var(--navy); }
 
 /* ===================== FORM ===================== */
-.form-group { margin-bottom: 22px; }
-.form-group label { display: block; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.55; margin-bottom: 8px; }
+.form-group, .fg { margin-bottom: 22px; }
+.form-group label, .fg label { display: block; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.55; margin-bottom: 8px; }
 .form-group input,
 .form-group select,
-.form-group textarea {
+.form-group textarea,
+.fg input,
+.fg select,
+.fg textarea {
   width: 100%;
   padding: 11px 0;
   font-size: 15px;
@@ -640,15 +643,25 @@ img { max-width: 100%; display: block; }
 }
 .form-group input:focus,
 .form-group select:focus,
-.form-group textarea:focus { border-bottom-color: var(--navy); }
-.form-group textarea { resize: none; height: 80px; }
+.form-group textarea:focus,
+.fg input:focus,
+.fg select:focus,
+.fg textarea:focus { border-bottom-color: var(--navy); }
+.form-group textarea, .fg textarea { resize: none; height: 80px; }
+.form-group select, .fg select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%231C3557' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  padding-right: 24px;
+  cursor: pointer;
+}
 .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.radio-group { display: flex; gap: 22px; margin-top: 8px; }
+.radio-group, .radio-grp { display: flex; gap: 22px; margin-top: 8px; flex-wrap: wrap; }
 .radio-opt { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; }
 .radio-opt input { width: auto; accent-color: var(--navy); }
 .rgpd-label { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; opacity: 0.6; line-height: 1.55; cursor: pointer; margin: 22px 0; }
 .rgpd-label input { flex-shrink: 0; margin-top: 3px; width: auto; accent-color: var(--navy); }
-.form-submit {
+.form-submit, .form-sub {
   width: 100%;
   padding: 16px;
   background: var(--navy);
@@ -659,8 +672,9 @@ img { max-width: 100%; display: block; }
   text-transform: uppercase;
   font-family: 'DM Sans', sans-serif;
   transition: background 0.3s;
+  cursor: pointer;
 }
-.form-submit:hover { background: var(--gold); }
+.form-submit:hover, .form-sub:hover { background: var(--gold); }
 .form-success {
   display: none;
   padding: 28px;
