@@ -1292,6 +1292,15 @@ body:has(a:hover) #cursor-ring {
   margin: 0;
 }
 
+/* --- SECTION TRANSITION --- */
+.section-transition {
+  background: linear-gradient(to bottom, var(--linen) 0%, #0A0A0A 100%);
+  padding: 60px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* --- SECTION FULL IMAGE --- */
 .sec-full-img {
   width: 100%;
