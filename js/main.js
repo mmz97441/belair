@@ -131,7 +131,30 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeModal(); closeBrochure(); }
+});
+
+/* === BROCHURE MODAL === */
+function openBrochure(projectName) {
+  var m = document.getElementById('modal-brochure');
+  if (!m) return;
+  m.classList.add('open');
+  document.getElementById('brochure-projet').value = projectName;
+  document.getElementById('brochure-title').textContent = 'Brochure — ' + projectName;
+  var success = document.getElementById('brochure-success');
+  if (success) success.classList.remove('show');
+  var form = document.getElementById('form-brochure');
+  if (form) { form.reset(); form.style.display = ''; }
+  var sub = m.querySelector('.form-sub');
+  if (sub) { sub.style.display = ''; sub.disabled = false; sub.textContent = 'Recevoir la brochure →'; }
+  document.body.style.overflow = 'hidden';
+}
+function closeBrochure() {
+  var m = document.getElementById('modal-brochure');
+  if (m) m.classList.remove('open');
+  document.body.style.overflow = '';
+}
 
 /* === FORM SUBMISSION (Formspree via AJAX) === */
 function showFormError(form, msg) {
@@ -192,7 +215,7 @@ function handleFormSubmit(e) {
     }
   })
   .catch(function() {
-    showFormError(form, 'Une erreur est survenue. Veuillez réessayer ou nous contacter par WhatsApp.');
+    showFormError(form, 'Une erreur est survenue. Veuillez réessayer.');
     submitBtn.textContent = 'Envoyer ma demande';
     submitBtn.disabled = false;
   });
@@ -204,12 +227,20 @@ document.addEventListener('DOMContentLoaded', function() {
   var formContact = document.getElementById('form-contact');
   if (formModal) formModal.addEventListener('submit', handleFormSubmit);
   if (formContact) formContact.addEventListener('submit', handleFormSubmit);
+  var formBrochure = document.getElementById('form-brochure');
+  if (formBrochure) formBrochure.addEventListener('submit', handleFormSubmit);
 
   /* Modal click outside to close */
   var modalOverlay = document.getElementById('modal');
   if (modalOverlay) {
     modalOverlay.addEventListener('click', function(e) {
       if (e.target === modalOverlay) closeModal();
+    });
+  }
+  var brochureOverlay = document.getElementById('modal-brochure');
+  if (brochureOverlay) {
+    brochureOverlay.addEventListener('click', function(e) {
+      if (e.target === brochureOverlay) closeBrochure();
     });
   }
 });

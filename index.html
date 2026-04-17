@@ -1209,7 +1209,7 @@
         <div class="article-cta-label">Intéressé par Layan Verde ?</div>
         <h3>Demandez la documentation complète du projet.</h3>
         <p>Brochure, plans, grille tarifaire et projection de rendement.</p>
-        <button class="btn btn-primary-lt" onclick="openModal()">Demander la brochure</button>
+        <button class="btn btn-primary-lt" onclick="openBrochure('Layan Verde')">Recevoir la brochure →</button>
       </div>
     </div>
   </div>
@@ -1258,7 +1258,7 @@
         <div class="article-cta-label">Intéressé par Rhea By Sansiri ?</div>
         <h3>Demandez la documentation complète du projet.</h3>
         <p>Brochure, plans, grille tarifaire et projection de rendement.</p>
-        <button class="btn btn-primary-lt" onclick="openModal()">Demander la brochure</button>
+        <button class="btn btn-primary-lt" onclick="openBrochure('Rhea By Sansiri')">Recevoir la brochure →</button>
       </div>
     </div>
   </div>
@@ -1638,6 +1638,61 @@
 </div>
 
 <script src="js/main.js"></script>
+
+
+<!-- ===================== MODAL BROCHURE ===================== -->
+<div class="modal-overlay" id="modal-brochure">
+  <div class="modal-box" style="max-width:480px;">
+    <div class="modal-header">
+      <button class="modal-close-btn" onclick="closeBrochure()">×</button>
+      <div class="modal-lbl">Documentation projet</div>
+      <h3 id="brochure-title">Recevoir la brochure</h3>
+      <div class="avail-badge avail-badge--center" style="margin-top:8px;"><span class="avail-dot"></span> Envoi immédiat par email</div>
+    </div>
+    <div class="modal-body">
+      <form id="form-brochure" action="https://formspree.io/f/mpqkqvye" method="POST">
+        <input type="hidden" name="_subject" value="BEL AIR — Demande de brochure">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="type_demande" value="Brochure">
+        <input type="hidden" name="projet" id="brochure-projet" value="">
+        <div class="form-row-2">
+          <div class="fg"><label>Prénom</label><input type="text" name="prenom" placeholder="Votre prénom" required></div>
+          <div class="fg"><label>Nom</label><input type="text" name="nom" placeholder="Votre nom" required></div>
+        </div>
+        <div class="fg"><label>Email</label><input type="email" name="email" placeholder="votre@email.com" required></div>
+        <div class="fg">
+          <label>Téléphone</label>
+          <div class="phone-input-container">
+            <div class="phone-input-wrap">
+              <button type="button" class="phone-prefix-btn" data-phone-prefix>
+                <span class="flag">🇷🇪</span>
+                <span class="code">+262</span>
+                <span class="chevron">▼</span>
+              </button>
+              <input type="tel" name="telephone" placeholder="692 XX XX XX" required>
+            </div>
+            <input type="hidden" name="indicatif" value="+262">
+            <div class="phone-dropdown" data-phone-dropdown>
+              <div class="phone-dropdown-search">
+                <input type="text" placeholder="Rechercher un pays ou indicatif..." data-phone-search>
+              </div>
+              <div class="phone-dropdown-list" data-phone-list></div>
+            </div>
+          </div>
+        </div>
+        <label class="rgpd-label">
+          <input type="checkbox" name="rgpd" required>
+          J'accepte de recevoir la brochure et d'être recontacté par BEL AIR.
+        </label>
+        <button type="submit" class="form-sub">Recevoir la brochure →</button>
+        <div class="form-success" id="brochure-success">
+          <h4>Brochure envoyée !</h4>
+          <p>Consultez votre boîte email. Nous vous recontacterons dans les 24h.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
