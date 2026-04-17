@@ -105,7 +105,7 @@
 
 <!-- TRUST BAR -->
   <div class="trust-bar">
-    <div class="trust-item"><span class="trust-icon">◆</span> Société française</div>
+    <div class="trust-item"><span class="trust-icon">◆</span> Agence immobilière française</div>
     <div class="trust-item"><span class="trust-icon">◆</span> Basé à Dubaï</div>
     <div class="trust-item"><span class="trust-icon">◆</span> 47 investisseurs accompagnés</div>
     <div class="trust-item"><span class="trust-icon">◆</span> Présence terrain en Thaïlande</div>
@@ -113,7 +113,7 @@
   </div>
 
 <!-- S2 — IDENTIFICATION -->
-  <section style="display:grid; grid-template-columns:1fr 1fr; min-height:680px; overflow:hidden;">
+  <section style="display:grid; grid-template-columns:3fr 2fr; min-height:580px; overflow:hidden;">
 
     <!-- Colonne gauche : fond noir opaque, texte -->
     <div style="
@@ -183,7 +183,7 @@
 
 
   <!-- S8 — FONDATEUR -->
-  <section style="display:grid; grid-template-columns:1fr 1fr; min-height:600px; overflow:hidden;">
+  <section style="display:grid; grid-template-columns:2fr 3fr; min-height:520px; overflow:hidden;">
     <div style="position:relative; overflow:hidden;">
       <img src="assets/images/portrait-fondateur.jpg" alt="Mathieu Maillot — Fondateur BEL AIR"
         style="width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);"
@@ -212,77 +212,55 @@
 
   
 
-<!-- S7 — DUBAÏ + MÉTHODE -->
-  <section style="display:grid; grid-template-columns:1fr 1fr; min-height:700px; overflow:hidden; background:var(--linen);">
-
-    <!-- Colonne gauche : texte sur fond lin -->
-    <div style="
-      background: var(--linen);
-      padding: 80px 64px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-    ">
-      <div style="position:absolute; right:0; top:60px; bottom:60px; width:1px; background:linear-gradient(to bottom, transparent, rgba(193,159,81,0.4), transparent);"></div>
-
-      <div class="sec-label" style="color:var(--gold);">Origine de la méthode</div>
-      <h2 style="font-family:'Playfair Display',serif; font-size:clamp(26px,3vw,42px); color:var(--navy); margin-bottom:20px; font-weight:500; line-height:1.2;">Notre exigence vient de Dubaï.</h2>
+<!-- S7 — DUBAÏ + MÉTHODE (fullbleed avec Burj Al Arab) -->
+  <section class="sec-fullbleed fb-dark" style="min-height:720px;">
+    <div class="fb-bg" style="background-image:url('assets/images/dubai-skyline.jpg');"></div>
+    <div class="fb-overlay fb-overlay-left"></div>
+    <div class="fb-content" style="max-width:640px;">
+      <div class="sec-label">Origine de la méthode</div>
+      <h2 class="sec-title">Notre exigence vient de Dubaï.</h2>
       <div class="gold-bar"></div>
 
-      <p style="font-size:15px; line-height:1.85; color:rgba(26,26,26,0.72); margin-bottom:18px;">Un marché où chaque décision doit être justifiée. Un marché où les erreurs coûtent immédiatement.</p>
-      <p style="font-size:15px; line-height:1.85; color:rgba(26,26,26,0.72); margin-bottom:28px;">C'est dans cet environnement que nous avons construit notre méthode. Aujourd'hui, nous l'appliquons en Thaïlande.</p>
+      <p style="font-size:15px; line-height:1.85; color:rgba(255,255,255,0.72); margin-bottom:18px;">Un marché où chaque décision doit être justifiée. Un marché où les erreurs coûtent immédiatement.</p>
+      <p style="font-size:15px; line-height:1.85; color:rgba(255,255,255,0.72); margin-bottom:28px;">C'est dans cet environnement que nous avons construit notre méthode. Aujourd'hui, nous l'appliquons en Thaïlande.</p>
 
-      <div style="border-top:1px solid rgba(28,53,87,0.1); padding-top:28px; margin-top:8px;">
-        <h3 style="font-family:'Playfair Display',serif; font-size:22px; color:var(--navy); margin-bottom:20px;">Une approche structurée.</h3>
+      <div style="border-top:1px solid rgba(193,159,81,0.2); padding-top:28px; margin-top:8px;">
+        <h3 style="font-family:'Playfair Display',serif; font-size:22px; color:white; margin-bottom:20px;">Une approche structurée.</h3>
 
         <div style="margin-bottom:12px;">
-          <div style="display:flex; gap:18px; padding:12px 0; border-bottom:1px solid rgba(28,53,87,0.07);">
-            <span style="font-family:'Playfair Display',serif; font-size:28px; color:var(--gold); opacity:0.5; width:40px; flex-shrink:0; line-height:1;">01</span>
-            <div><div style="font-size:14px; font-weight:500; color:var(--navy); margin-bottom:3px;">Analyse des zones à potentiel</div><div style="font-size:13px; color:rgba(26,26,26,0.55);">Identification des microzonages à forte demande réelle</div></div>
+          <div style="display:flex; gap:18px; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.08);">
+            <span style="font-family:'Playfair Display',serif; font-size:28px; color:var(--gold); opacity:0.6; width:40px; flex-shrink:0; line-height:1;">01</span>
+            <div><div style="font-size:14px; font-weight:500; color:white; margin-bottom:3px;">Analyse des zones à potentiel</div><div style="font-size:13px; color:rgba(255,255,255,0.5);">Identification des microzonages à forte demande réelle</div></div>
           </div>
-          <div style="display:flex; gap:18px; padding:12px 0; border-bottom:1px solid rgba(28,53,87,0.07);">
-            <span style="font-family:'Playfair Display',serif; font-size:28px; color:var(--gold); opacity:0.5; width:40px; flex-shrink:0; line-height:1;">02</span>
-            <div><div style="font-size:14px; font-weight:500; color:var(--navy); margin-bottom:3px;">Sélection rigoureuse des projets</div><div style="font-size:13px; color:rgba(26,26,26,0.55);">Audit développeur, historique de livraison, structure juridique</div></div>
+          <div style="display:flex; gap:18px; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.08);">
+            <span style="font-family:'Playfair Display',serif; font-size:28px; color:var(--gold); opacity:0.6; width:40px; flex-shrink:0; line-height:1;">02</span>
+            <div><div style="font-size:14px; font-weight:500; color:white; margin-bottom:3px;">Sélection rigoureuse des projets</div><div style="font-size:13px; color:rgba(255,255,255,0.5);">Audit développeur, historique de livraison, structure juridique</div></div>
           </div>
-          <div style="display:flex; gap:18px; padding:12px 0; border-bottom:1px solid rgba(28,53,87,0.07);">
-            <span style="font-family:'Playfair Display',serif; font-size:28px; color:var(--gold); opacity:0.5; width:40px; flex-shrink:0; line-height:1;">03</span>
-            <div><div style="font-size:14px; font-weight:500; color:var(--navy); margin-bottom:3px;">Vérification terrain</div><div style="font-size:13px; color:rgba(26,26,26,0.55);">Validation physique sur site avant toute recommandation</div></div>
+          <div style="display:flex; gap:18px; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.08);">
+            <span style="font-family:'Playfair Display',serif; font-size:28px; color:var(--gold); opacity:0.6; width:40px; flex-shrink:0; line-height:1;">03</span>
+            <div><div style="font-size:14px; font-weight:500; color:white; margin-bottom:3px;">Vérification terrain</div><div style="font-size:13px; color:rgba(255,255,255,0.5);">Validation physique sur site avant toute recommandation</div></div>
           </div>
-          <div style="display:flex; gap:18px; padding:12px 0; border-bottom:1px solid rgba(28,53,87,0.07);">
-            <span style="font-family:'Playfair Display',serif; font-size:28px; color:var(--gold); opacity:0.5; width:40px; flex-shrink:0; line-height:1;">04</span>
-            <div><div style="font-size:14px; font-weight:500; color:var(--navy); margin-bottom:3px;">Alignement avec votre stratégie</div><div style="font-size:13px; color:rgba(26,26,26,0.55);">Rendement, valorisation ou diversification</div></div>
+          <div style="display:flex; gap:18px; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.08);">
+            <span style="font-family:'Playfair Display',serif; font-size:28px; color:var(--gold); opacity:0.6; width:40px; flex-shrink:0; line-height:1;">04</span>
+            <div><div style="font-size:14px; font-weight:500; color:white; margin-bottom:3px;">Alignement avec votre stratégie</div><div style="font-size:13px; color:rgba(255,255,255,0.5);">Rendement, valorisation ou diversification</div></div>
           </div>
           <div style="display:flex; gap:18px; padding:12px 0;">
-            <span style="font-family:'Playfair Display',serif; font-size:28px; color:var(--gold); opacity:0.5; width:40px; flex-shrink:0; line-height:1;">05</span>
-            <div><div style="font-size:14px; font-weight:500; color:var(--navy); margin-bottom:3px;">Accompagnement complet</div><div style="font-size:13px; color:rgba(26,26,26,0.55);">De la première analyse jusqu'à la signature définitive</div></div>
+            <span style="font-family:'Playfair Display',serif; font-size:28px; color:var(--gold); opacity:0.6; width:40px; flex-shrink:0; line-height:1;">05</span>
+            <div><div style="font-size:14px; font-weight:500; color:white; margin-bottom:3px;">Accompagnement complet</div><div style="font-size:13px; color:rgba(255,255,255,0.5);">De la première analyse jusqu'à la signature définitive</div></div>
           </div>
         </div>
 
-        <div style="border:1px solid rgba(193,159,81,0.35); padding:24px; text-align:center; margin:20px 0; background:white;">
+        <div style="border:1px solid rgba(193,159,81,0.35); padding:24px; text-align:center; margin:20px 0; background:rgba(0,0,0,0.4); backdrop-filter:blur(8px);">
           <div style="font-family:'Playfair Display',serif; font-size:56px; color:var(--gold); line-height:1;">90%</div>
-          <div style="font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(26,26,26,0.55); margin-top:8px;">des projets analysés<br>sont écartés avant toute recommandation</div>
+          <div style="font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-top:8px;">des projets analysés<br>sont écartés avant toute recommandation</div>
         </div>
 
-        <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:16px; color:var(--navy); line-height:1.6; margin-bottom:16px;">Investir sans méthode, c'est parier.<br>Nous sélectionnons pour ne pas parier.</p>
+        <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:16px; color:rgba(255,255,255,0.75); line-height:1.6; margin-bottom:16px;">Investir sans méthode, c'est parier.<br>Nous sélectionnons pour ne pas parier.</p>
 
-        <button class="btn-t" onclick="openModal()">Solliciter un entretien privé →</button>
+        <button class="btn-t" onclick="openModal()" style="color:var(--gold);">Solliciter un entretien privé →</button>
       </div>
     </div>
-
-    <!-- Colonne droite : photo Dubaï -->
-    <div style="position:relative; overflow:hidden;">
-      <img src="assets/images/dubai-skyline.jpg" alt="Burj Al Arab — Dubaï"
-        style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 0.8s ease;"
-        onmouseover="this.style.transform='scale(1.04)'"
-        onmouseout="this.style.transform='scale(1)'">
-    </div>
-
   </section>
-
-  <div class="section-transition">
-    <div class="gold-line-sep"></div>
-  </div>
 
 <!-- S6 — TERRAIN -->
   <section class="sec-fullbleed fb-dark" style="min-height:620px;">
@@ -468,7 +446,7 @@
         <div class="sec-label reveal">Formulaire de contact</div>
         <h2 class="sec-title" style="font-size:28px; margin-bottom:16px;">Planifier un échange stratégique</h2>
         <div class="gold-bar reveal reveal-delay-1"></div>
-        <p style="font-size:15px; opacity:0.7; line-height:1.8; margin-bottom:32px;">Remplissez ce formulaire et nous reviendrons vers vous dans les 48h pour organiser un premier échange adapté à votre projet.</p>
+        <p style="font-size:15px; opacity:0.7; line-height:1.8; margin-bottom:32px;">Remplissez ce formulaire et nous reviendrons vers vous dans les 24h pour organiser un premier échange adapté à votre projet.</p>
         <form id="form-contact" action="https://formspree.io/f/mpqkqvye" method="POST">
           <input type="hidden" name="_subject" value="BEL AIR — Contact page">
           <input type="hidden" name="_template" value="table">
@@ -515,12 +493,11 @@
             <label>Quel est votre apport pour cet investissement ?</label>
             <select name="apport" required>
               <option value="">Sélectionner</option>
-              <option>25 000 € – 40 000 €</option>
-              <option>40 000 € – 60 000 €</option>
-              <option>60 000 € – 80 000 €</option>
-              <option>80 000 € – 100 000 €</option>
-              <option>100 000 € – 120 000 €</option>
-              <option>Plus de 120 000 €</option>
+              <option>Moins de 100 000 €</option>
+              <option>100 000 € – 250 000 €</option>
+              <option>250 000 € – 500 000 €</option>
+              <option>500 000 € – 1 000 000 €</option>
+              <option>Plus de 1 000 000 €</option>
             </select>
           </div>
           <div class="form-group">
@@ -547,7 +524,7 @@
           <button type="submit" class="form-submit">Envoyer ma demande</button>
           <div class="form-success" id="page-contact-success">
             <h4>Message envoyé.</h4>
-            <p>Nous vous recontacterons dans les 48h pour organiser votre échange.</p>
+            <p>Nous vous recontacterons dans les 24h pour organiser votre échange.</p>
           </div>
         </form>
       </div>
@@ -556,7 +533,7 @@
           <h3>BEL AIR</h3>
           <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:17px; color:var(--navy); margin-bottom:20px; line-height:1.6;">"Investir à l'étranger avec méthode. Pas avec espoir."</p>
           <ul class="check-list">
-            <li><span class="ci">✓</span> Société française</li>
+            <li><span class="ci">✓</span> Agence immobilière française</li>
             <li><span class="ci">✓</span> Ancrage opérationnel à Dubaï</li>
             <li><span class="ci">✓</span> Présence terrain en Thaïlande</li>
             <li><span class="ci">✓</span> Ticket moyen accompagné : 300–400 k€</li>
@@ -1171,7 +1148,7 @@
       <strong>BEL AIR</strong><br>
       Activité : Conseil en investissement immobilier international<br>
       Siège opérationnel : Dubaï, Émirats Arabes Unis<br>
-      Forme juridique : Société française<br>
+      Forme juridique : Agence immobilière française<br>
       Directeur de la publication : <strong>Mathieu Maillot</strong><br>
       Email : <strong>mathieu.maillot.pro@gmail.com</strong><br>
       Téléphone : +262 (numéro sur demande)
@@ -1383,14 +1360,6 @@
   </section>
 </div>
 
-<!-- ===================== FLOATING CTA BUTTONS ===================== -->
-<a href="https://wa.me/971XXXXXXXXX?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20opportunit%C3%A9s%20d%27investissement." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Nous contacter sur WhatsApp">
-  <span class="whatsapp-tooltip">Discuter sur WhatsApp</span>
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
-<a href="tel:+971XXXXXXXXX" class="phone-float" aria-label="Nous appeler">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-</a>
 
 <!-- ===================== FOOTER ===================== -->
 <footer>
@@ -1406,7 +1375,7 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
         </a>
       </div>
-      <p class="footer-subtle">BEL AIR — Société française — Dubaï</p>
+      <p class="footer-subtle">BEL AIR — Agence immobilière française — Dubaï</p>
     </div>
     <div>
       <div class="footer-col-title">Navigation</div>
@@ -1444,7 +1413,7 @@
       <button class="modal-close-btn" onclick="closeModal()">×</button>
       <div class="modal-lbl">Prise de contact</div>
       <h3>Planifier un échange stratégique</h3>
-      <div class="avail-badge" style="justify-content:center; margin-top:8px;"><span class="avail-dot"></span> Réponse sous 48h garantie</div>
+      <div class="avail-badge" style="justify-content:center; margin-top:8px;"><span class="avail-dot"></span> Réponse sous 24h garantie</div>
     </div>
 
     <!-- Corps modal -->
@@ -1496,9 +1465,8 @@
           <select name="apport" required>
             <option value="">Sélectionner</option>
             <option>Moins de 100 000 €</option>
-            <option>100 000 € – 200 000 €</option>
-            <option>200 000 € – 300 000 €</option>
-            <option>300 000 € – 500 000 €</option>
+            <option>100 000 € – 250 000 €</option>
+            <option>250 000 € – 500 000 €</option>
             <option>500 000 € – 1 000 000 €</option>
             <option>Plus de 1 000 000 €</option>
           </select>
@@ -1530,7 +1498,7 @@
         <button type="submit" class="form-sub">Envoyer ma demande</button>
         <div class="form-success" id="modal-success">
           <h4>Message envoyé.</h4>
-          <p>Nous vous recontacterons dans les 48h pour organiser votre échange.</p>
+          <p>Nous vous recontacterons dans les 24h pour organiser votre échange.</p>
         </div>
       </form>
     </div>

@@ -1019,8 +1019,16 @@ footer {
 }
 
 /* --- CUSTOM CURSOR --- */
+/* Custom cursor only on desktop — restore normal cursor on interactive elements */
 @media (hover: hover) and (pointer: fine) {
-  *, *::before, *::after { cursor: none !important; }
+  body { cursor: none; }
+  a, button, input, select, textarea, label, .btn, .btn-t, .nav-cta-btn,
+  .blog-card, .mkt-card, .radio-opt, .phone-prefix-btn, .phone-option,
+  .arrow-btn, .dot, .testi-ed-dot, .hamburger, .modal-close-btn,
+  .whatsapp-float, .phone-float, .footer-social-link,
+  [onclick], [type="submit"] {
+    cursor: pointer !important;
+  }
 }
 #cursor-dot {
   position: fixed;
