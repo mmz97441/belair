@@ -449,9 +449,31 @@ img { max-width: 100%; display: block; }
   color: var(--cream);
   transform: translateY(-1px);
 }
-.btn-outline { 
-  background: transparent; 
-  color: var(--navy); 
+/* Text button (link-style) */
+.btn-t {
+  background: transparent;
+  border: none;
+  padding: 10px 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--navy);
+  border-bottom: 1px solid var(--gold);
+  cursor: pointer;
+  transition: all 0.35s ease;
+  position: relative;
+  display: inline-block;
+}
+.btn-t:hover {
+  color: var(--gold);
+  letter-spacing: 0.22em;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--navy);
   border: 1px solid rgba(28,53,87,0.4);
 }
 .btn-outline:hover { 
