@@ -997,7 +997,9 @@ footer {
 }
 
 /* --- CUSTOM CURSOR --- */
-*, *::before, *::after { cursor: none !important; }
+@media (hover: hover) and (pointer: fine) {
+  *, *::before, *::after { cursor: none !important; }
+}
 #cursor-dot {
   position: fixed;
   width: 8px; height: 8px;
@@ -2051,16 +2053,187 @@ body:has(a:hover) #cursor-ring {
    RESPONSIVE OVERRIDES (updated for semantic classes)
    ============================================================ */
 @media (max-width: 900px) {
-  .grid-2col {
+  .grid-2col,
+  section[style*="grid-template-columns:1fr 1fr"],
+  section[style*="grid-template-columns: 1fr 1fr"] {
     display: flex !important;
     flex-direction: column !important;
     min-height: auto !important;
+    grid-template-columns: 1fr !important;
   }
-  .grid-2col > div {
-    padding: 48px 24px !important;
+  .grid-2col > div,
+  section[style*="grid-template-columns:1fr 1fr"] > div,
+  section[style*="grid-template-columns: 1fr 1fr"] > div {
+    padding: 56px 24px !important;
     min-height: auto !important;
   }
-  .col-img img.img-cover { max-height: 360px; }
+  .col-img img.img-cover,
+  section[style*="grid-template-columns:1fr 1fr"] > div[style*="overflow:hidden"] img,
+  section[style*="grid-template-columns: 1fr 1fr"] > div[style*="overflow:hidden"] img {
+    max-height: 320px !important;
+    width: 100% !important;
+  }
   .legal-sec { padding-left: 24px !important; padding-right: 24px !important; }
+
+  /* Force wrap on all inline flex/grid layouts */
+  section[style*="display:grid"] {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Titles: reduce sizes */
+  h1, .slide-title { font-size: 30px !important; line-height: 1.2 !important; }
+  h2, .sec-title { font-size: 24px !important; line-height: 1.25 !important; }
+  h3 { font-size: 20px !important; }
+
+  /* Inline h2 styles override */
+  section h2[style] { font-size: 24px !important; }
+  section div[style*="font-size:32px"],
+  section div[style*="font-size: 32px"] { font-size: 24px !important; }
+  section div[style*="font-size:56px"],
+  section div[style*="font-size: 56px"] { font-size: 42px !important; }
+  section div[style*="font-size:48px"],
+  section div[style*="font-size: 48px"] { font-size: 36px !important; }
+  section div[style*="font-size:44px"],
+  section div[style*="font-size: 44px"] { font-size: 32px !important; }
+
+  /* Paragraphs inside inline-styled sections */
+  section p[style] {
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+  }
+
+  /* Three-col becomes stack */
+  .three-col { grid-template-columns: 1fr !important; gap: 20px !important; }
+
+  /* Buttons full width */
+  section .btn,
+  section .btn-primary,
+  section .btn-outline,
+  section .btn-primary-lt,
+  .final-sec .btn { width: 100%; max-width: 320px; }
+  .btn-row { justify-content: center; }
+
+  /* Trust bar wraps */
+  .trust-bar {
+    flex-direction: column;
+    gap: 14px !important;
+    padding: 24px 20px !important;
+  }
+  .trust-item {
+    font-size: 11px !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  /* Sec-label */
+  .sec-label { font-size: 10px !important; letter-spacing: 0.18em !important; }
+
+  /* Check-list on mobile */
+  .check-list li { font-size: 13px !important; line-height: 1.6 !important; padding: 10px 0 !important; }
+
+  /* Testimonials */
+  .testi-ed-quote { font-size: 18px !important; min-height: 140px !important; }
+
+  /* Method steps */
+  section div[style*="display:flex"][style*="gap:18px"] span[style*="font-size:28px"] {
+    font-size: 22px !important;
+    width: 32px !important;
+  }
+
+  /* Stat box */
+  section div[style*="border:1px solid rgba(193,159,81"][style*="padding:24px"] {
+    padding: 18px !important;
+  }
+
+  /* Reset vertical separators on mobile */
+  section div[style*="position:absolute"][style*="width:1px"] {
+    display: none !important;
+  }
+
+  /* Hero arrows - smaller and better positioned */
+  .hero-arrows { right: 20px !important; bottom: 70px !important; }
+  .arrow-btn { width: 36px !important; height: 36px !important; }
+
+  /* Page header padding reduced */
+  .page-header { padding: 48px 20px 40px !important; }
+  .page-header p { font-size: 14px !important; line-height: 1.6 !important; }
+
+  /* Disable grain canvas on mobile for perf */
+  #grain-canvas { display: none !important; }
+
+  /* Disable custom cursor on mobile — already via hover:none */
+  *, *::before, *::after { cursor: auto !important; }
+
+  /* Scroll indicator */
+  .scroll-indicator { display: none !important; }
+
+  /* Brand statement padding */
+  .brand-statement { padding: 60px 20px !important; }
+  .brand-statement-text { font-size: 28px !important; line-height: 1.25 !important; }
+
+  /* Testimonials editorial */
+  .testi-editorial { padding: 56px 20px !important; }
+  .testi-editorial::before { font-size: 160px !important; left: 20px !important; }
+
+  /* Final CTA section */
+  .final-sec .sec-title { font-size: 22px !important; max-width: 100% !important; }
+  .final-sec p[style] { font-size: 16px !important; }
+
+  /* Footer */
+  .footer-logo { font-size: 20px !important; }
+  .footer-tagline { font-size: 14px !important; }
+  .footer-col-title { font-size: 11px !important; }
+  .footer-nav-list li { font-size: 13px !important; }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    font-size: 10px !important;
+  }
+
+  /* Modal on mobile */
+  .modal-overlay { padding: 20px !important; }
+  .modal-header h3 { font-size: 22px !important; }
+
+  /* Form labels and inputs */
+  .form-group label,
+  .fg label { font-size: 11px !important; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea,
+  .fg input,
+  .fg select,
+  .fg textarea { font-size: 16px !important; }
+
+  /* Section transition */
+  .section-transition { padding: 30px 0 !important; }
+
+  /* Reduce ticket-box */
+  section div[style*="linear-gradient(145deg"] {
+    padding: 30px 20px !important;
+    aspect-ratio: auto !important;
+  }
 }
+
+/* Prevent horizontal overflow on mobile */
+@media (max-width: 900px) {
+  html, body { overflow-x: hidden !important; width: 100% !important; max-width: 100vw !important; }
+  img { max-width: 100% !important; height: auto; }
+  .mkt-card { padding: 32px 24px !important; }
+  .contact-info-box { padding: 32px 24px !important; }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+  .slide-content { padding: 0 20px 70px !important; }
+  .slide-title { font-size: 24px !important; }
+  .slide-bullet { font-size: 12px !important; }
+  h1 { font-size: 26px !important; }
+  h2, .sec-title { font-size: 22px !important; }
+  .sec { padding: 48px 20px !important; }
+  .trust-bar { padding: 20px 16px !important; }
+  .whatsapp-float { bottom: 16px !important; right: 16px !important; }
+  .phone-float { bottom: 78px !important; right: 16px !important; }
+}
+
 .text-muted { opacity: 0.4; }
