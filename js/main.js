@@ -482,3 +482,106 @@ document.querySelectorAll('video[autoplay]').forEach(function(video) {
     else if (!nav.classList.contains('page-nav')) nav.classList.remove('scrolled');
   }, { passive: true });
 })();
+
+/* === COOKIE CONSENT === */
+(function() {
+  var consent = localStorage.getItem('cookie-consent');
+  if (!consent) {
+    setTimeout(function() {
+      var banner = document.getElementById('cookie-banner');
+      if (banner) banner.classList.add('visible');
+    }, 1500);
+  } else if (consent === 'accepted') {
+    loadAnalytics();
+  }
+})();
+
+function acceptCookies() {
+  localStorage.setItem('cookie-consent', 'accepted');
+  document.getElementById('cookie-banner').classList.remove('visible');
+  loadAnalytics();
+}
+function refuseCookies() {
+  localStorage.setItem('cookie-consent', 'refused');
+  document.getElementById('cookie-banner').classList.remove('visible');
+}
+function loadAnalytics() {
+  // Google Analytics 4 — remplacer G-XXXXXXXXXX par votre ID
+  // var s = document.createElement('script');
+  // s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+  // s.async = true;
+  // document.head.appendChild(s);
+  // s.onload = function() {
+  //   window.dataLayer = window.dataLayer || [];
+  //   function gtag(){dataLayer.push(arguments);}
+  //   gtag('js', new Date());
+  //   gtag('config', 'G-XXXXXXXXXX');
+  // };
+}
+
+/* === SEO: DYNAMIC TITLE & META PER PAGE === */
+var pageMeta = {
+  'home': {
+    title: 'BEL AIR — Investir en Thaïlande avec méthode. Pas avec espoir.',
+    desc: 'BEL AIR accompagne les investisseurs francophones dans l\'investissement immobilier en Thaïlande. Cabinet basé à Dubaï. Sélection rigoureuse, présence terrain à Phuket.'
+  },
+  'thai': {
+    title: 'Investir en Thaïlande — BEL AIR | Rendement locatif garanti à Phuket',
+    desc: 'Investissement immobilier en Thaïlande : condominiums à Phuket, rendement locatif 7-10% net. Accompagnement complet par BEL AIR, agence française basée à Dubaï.'
+  },
+  'blog': {
+    title: 'Blog — Investissement immobilier Phuket | BEL AIR',
+    desc: 'Analyses de marché, rendement locatif, réglementation Airbnb, quartiers premium à Phuket. Le journal de l\'investissement immobilier international par BEL AIR.'
+  },
+  'contact': {
+    title: 'Contact — Planifier un échange stratégique | BEL AIR',
+    desc: 'Contactez BEL AIR pour un échange stratégique sur votre projet d\'investissement immobilier en Thaïlande. Réponse sous 24h. Sans engagement.'
+  },
+  'project-layan-verde': {
+    title: 'Layan Verde — Condominium premium à Phuket | BEL AIR',
+    desc: 'Projet Layan Verde à Phuket : condominium à partir de 160 000€, rendement 8-10% net, livraison Q4 2027. Community mall, espaces verts, architecture contemporaine.'
+  },
+  'project-rhea-sansini': {
+    title: 'Rhea By Sansiri — Condominium Phuket | BEL AIR',
+    desc: 'Projet Rhea By Sansiri à Phuket : condominium à partir de 110 000€, rendement 7-8% net, livraison Q4 2027. Piscine, lobby premium, pet park.'
+  },
+  'article-phuket-opportunites': {
+    title: 'Pourquoi investir à Phuket : opportunités pour les étrangers | BEL AIR',
+    desc: 'Pourquoi Phuket attire les investisseurs étrangers : marché résilient, avantages fiscaux, rendement 5-10% net. Analyse complète par BEL AIR.'
+  },
+  'article-phuket-guide': {
+    title: 'Guide complet : investir à Phuket — immobilier et rendement locatif',
+    desc: 'Tout savoir pour investir à Phuket : types de biens, législation, rendement 6-10% brut, quartiers premium, erreurs à éviter. Guide par Mathieu Maillot.'
+  },
+  'article-phuket-bang-tao-surin': {
+    title: 'Investir à Bang Tao et Surin — quartiers premium de Phuket | BEL AIR',
+    desc: 'Bang Tao et Surin : les quartiers les plus rentables de Phuket. Condominiums, villas, rendement locatif, style de vie. Analyse par BEL AIR.'
+  },
+  'article-phuket-rentabilite': {
+    title: 'Airbnb Phuket : le vrai potentiel de rentabilité locative | BEL AIR',
+    desc: 'Rendement Airbnb à Phuket : 8-12% brut en courte durée vs 5-7% en longue durée. Comparatif, réglementation, conseils pratiques par BEL AIR.'
+  },
+  'article-phuket-airbnb': {
+    title: 'Optimiser la rentabilité Airbnb à Phuket — location courte durée | BEL AIR',
+    desc: 'Location courte durée à Phuket via Airbnb : rendement 6-12%, réglementation, indicateurs clés, conseils pour maximiser vos revenus locatifs.'
+  }
+};
+
+var originalShowPage = showPage;
+showPage = function(name, pushHistory) {
+  originalShowPage(name, pushHistory);
+  var meta = pageMeta[name];
+  if (meta) {
+    document.title = meta.title;
+    var descTag = document.querySelector('meta[name="description"]');
+    if (descTag) descTag.setAttribute('content', meta.desc);
+  }
+};
+
+/* === FAQ ACCORDION === */
+function toggleFaq(btn) {
+  var item = btn.parentElement;
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(el) { el.classList.remove('open'); });
+  if (!isOpen) item.classList.add('open');
+}
