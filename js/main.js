@@ -88,8 +88,8 @@ var sliderInterval = setInterval(nextSlide, 5000);
   hero.addEventListener('mouseleave', function() { sliderInterval = setInterval(nextSlide, 5000); });
 })();
 
-/* === SPA NAVIGATION === */
-function showPage(name) {
+/* === SPA NAVIGATION WITH HISTORY === */
+function showPage(name, pushHistory) {
   document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
   document.querySelectorAll('.nav-links a').forEach(function(a) { a.classList.remove('active'); });
   var page = document.getElementById('page-' + name);
@@ -100,7 +100,28 @@ function showPage(name) {
   var nb = document.getElementById('navbar');
   if (name !== 'home') { nb.classList.add('scrolled'); nb.classList.add('page-nav'); }
   else { nb.classList.remove('page-nav'); }
+  if (pushHistory !== false) {
+    history.pushState({ page: name }, '', '#' + name);
+  }
 }
+
+window.addEventListener('popstate', function(e) {
+  if (e.state && e.state.page) {
+    showPage(e.state.page, false);
+  } else {
+    var hash = location.hash.replace('#', '');
+    showPage(hash || 'home', false);
+  }
+});
+
+(function() {
+  var hash = location.hash.replace('#', '');
+  if (hash && document.getElementById('page-' + hash)) {
+    showPage(hash, false);
+  } else {
+    history.replaceState({ page: 'home' }, '', '#home');
+  }
+})();
 
 /* === MOBILE MENU === */
 function openMobile() {
