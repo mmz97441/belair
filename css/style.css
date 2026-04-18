@@ -11,13 +11,15 @@
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
+/* Ensure page fills space and footer sticks */
 body {
   font-family: 'DM Sans', sans-serif;
-  background: var(--cream);
+  background: #0A0A0A;
   color: var(--ink);
   line-height: 1.7;
   overflow-x: hidden;
 }
+.page { background: var(--cream); }
 h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 500; line-height: 1.2; }
 a { text-decoration: none; color: inherit; }
 button { cursor: pointer; font-family: 'DM Sans', sans-serif; }
@@ -883,6 +885,14 @@ footer {
   background: #0A0A0A;
   color: var(--cream);
   padding: 64px 80px 30px;
+  margin-top: 0;
+}
+footer::before {
+  content: '';
+  display: block;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(193,159,81,0.3), transparent);
+  margin-bottom: 64px;
 }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 64px; margin-bottom: 56px; }
 .footer-logo { 
