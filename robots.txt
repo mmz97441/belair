@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.belair-realestate.com/sitemap.xml
